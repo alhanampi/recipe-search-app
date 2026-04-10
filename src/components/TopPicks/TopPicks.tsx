@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import CardMedia from '@mui/material/CardMedia';
 import { getPopular } from '../../services/topPicks';
+import { translateCards, type CardTranslation } from '../../services/groq';
 import noPreview from '../../assets/nopreview.png';
 import {
   CardTitleBox,
@@ -16,18 +18,30 @@ import {
   StyledCardContent,
   SummaryText,
   Title,
+  ViewRecipeButton,
   Wrapper,
 } from './TopPicks.styled';
 import DietPills from '../DietPills/DietPills';
 import CuisinePills from '../CuisinePills/CuisinePills';
 
 const TopPicks = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const [topPicks, setTopPicks] = useState([]);
+  const [cardTranslations, setCardTranslations] = useState<Map<number, CardTranslation>>(new Map());
+  const language = i18n.resolvedLanguage ?? 'en';
 
   useEffect(() => {
-    getPopular().then(setTopPicks);
-  }, []);
+    getPopular(language).then(setTopPicks);
+  }, [language]);
+
+  useEffect(() => {
+    if (!topPicks.length || language === 'en') return;
+    translateCards(
+      topPicks.map((r: any) => ({ id: r.id, title: r.title, summary: r.summary?.replace(/<[^>]+>/g, '') ?? '' })),
+      language
+    ).then(setCardTranslations);
+  }, [topPicks, language]);
 
   return (
     <Wrapper>
@@ -41,43 +55,51 @@ const TopPicks = () => {
           drag: 'free',
         }}
       >
-        {topPicks.map((recipe: any) => (
-          <SplideSlide key={recipe.id}>
-            <StyledCard>
-              <CardTitleBox>
-                <CardTitleText>
-                  {recipe.title.charAt(0).toUpperCase() + recipe.title.slice(1)}
-                </CardTitleText>
-              </CardTitleBox>
-              <ImageWrapper>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={recipe.image ?? noPreview}
-                  alt={recipe.title}
-                  onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-                    e.currentTarget.src = noPreview;
-                  }}
-                />
-                <CuisineOverlay>
-                  <CuisinePills recipe={recipe} />
-                </CuisineOverlay>
-              </ImageWrapper>
-              <StyledCardContent>
-                <ClockRow>
-                  <ClockIcon />
-                  {t('topPicks.readyIn')} {recipe.readyInMinutes} {t('topPicks.minutes')}
-                </ClockRow>
-                {recipe.summary && (
-                  <SummaryText>
-                    {recipe.summary.replace(/<[^>]+>/g, '').slice(0, 150)}...
-                  </SummaryText>
-                )}
-              </StyledCardContent>
-              <DietPills recipe={recipe} />
-            </StyledCard>
-          </SplideSlide>
-        ))}
+        {topPicks.map((recipe: any) => {
+          const tr = cardTranslations.get(recipe.id);
+          const title = tr?.title ?? recipe.title;
+          const summary = tr?.summary ?? recipe.summary?.replace(/<[^>]+>/g, '');
+          return (
+            <SplideSlide key={recipe.id}>
+              <StyledCard>
+                <CardTitleBox>
+                  <CardTitleText>
+                    {title.charAt(0).toUpperCase() + title.slice(1)}
+                  </CardTitleText>
+                </CardTitleBox>
+                <ImageWrapper>
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={recipe.image ?? noPreview}
+                    alt={title}
+                    onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                      e.currentTarget.src = noPreview;
+                    }}
+                  />
+                  <CuisineOverlay>
+                    <CuisinePills recipe={recipe} />
+                  </CuisineOverlay>
+                </ImageWrapper>
+                <StyledCardContent>
+                  <ClockRow>
+                    <ClockIcon />
+                    {t('topPicks.readyIn')} {recipe.readyInMinutes} {t('topPicks.minutes')}
+                  </ClockRow>
+                  {summary && (
+                    <SummaryText>
+                      {summary.slice(0, 150)}...
+                    </SummaryText>
+                  )}
+                </StyledCardContent>
+                <DietPills recipe={recipe} />
+                <ViewRecipeButton onClick={() => navigate(`/recipe/${recipe.id}`)}>
+                  {t('recipe.viewFull')}
+                </ViewRecipeButton>
+              </StyledCard>
+            </SplideSlide>
+          );
+        })}
       </Splide>
     </Wrapper>
   );

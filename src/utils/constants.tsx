@@ -128,3 +128,9 @@ export const DIET_ICONS: Record<string, ReactElement> = {
   pescetarian: <FaFish />,
   ketogenic:   <PiAvocado />,
 };
+
+export const LANGUAGE_NAMES: Record<string, string> = {
+  es: 'Spanish',
+  fr: 'French',
+  pt: 'Portuguese',
+};

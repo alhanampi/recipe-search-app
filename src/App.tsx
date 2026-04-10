@@ -7,6 +7,7 @@ import CuisinePage from './pages/CuisinePage';
 import SearchPage from './pages/SearchPage';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import RecipePage from './pages/RecipePage';
 
 const Layout = ({ children }: { children: React.ReactNode }) => (
   <>
@@ -25,6 +26,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Layout><Home /></Layout>} />
           <Route path="/search/:query" element={<Layout><SearchPage /></Layout>} />
+          <Route path="/recipe/:id" element={<Layout><RecipePage /></Layout>} />
           <Route path="/:cuisine" element={<Layout><CuisinePage /></Layout>} />
         </Routes>
       </ThemeProvider>

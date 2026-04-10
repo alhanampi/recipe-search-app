@@ -57,3 +57,21 @@ export const CardBody = styled.div`
   padding: 1rem;
   gap: 0.5rem;
 `;
+
+export const ViewRecipeButton = styled.button`
+  margin-top: auto;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-text-primary);
+  border: none;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-card-bg);
+  align-self: center;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;

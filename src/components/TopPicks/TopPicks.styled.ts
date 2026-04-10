@@ -88,3 +88,21 @@ export const SummaryText = styled.p`
   margin-top: 0.5rem;
   padding-top: 0.5rem;
 `;
+
+export const ViewRecipeButton = styled.button`
+  display: block;
+  margin: auto auto 0.75rem;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--color-text-primary);
+  border: none;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-card-bg);
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;

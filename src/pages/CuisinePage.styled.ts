@@ -59,6 +59,13 @@ export const ShowMoreButton = styled.button`
   }
 `;
 
+export const ResultCount = styled.p`
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  width: 80%;
+  margin: 0 auto 1rem;
+`;
+
 export const Title = styled.h2`
   font-size: 1.75rem;
   font-weight: 700;

@@ -1,10 +1,13 @@
 import Chip from '@mui/material/Chip';
-import { DIET_COLORS, DIET_ICONS, DIET_LABELS } from '../../utils/constants';
+import { DIET_COLORS, DIET_ICONS } from '../../utils/constants';
 import type { RecipeProps } from '../../utils/types';
 import { IconWrapper, PillsWrapper } from './DietPills.styled';
+import { DIET_LABELS } from '../../utils/constants';
+
+const DIET_KEYS = ['vegetarian', 'vegan', 'glutenFree', 'dairyFree', 'ketogenic', 'paleo', 'primal', 'pescetarian', 'lowFodmap', 'whole30'];
 
 const DietPills = ({ recipe }: RecipeProps) => {
-  const active = Object.keys(DIET_LABELS).filter((key) => recipe[key] === true);
+  const active = DIET_KEYS.filter((key) => recipe[key] === true);
 
   if (active.length === 0) return null;
 

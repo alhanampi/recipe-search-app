@@ -1,15 +1,24 @@
 import Chip from '@mui/material/Chip';
+import { useTranslation } from 'react-i18next';
 import { CUISINE_COLORS, CUISINE_ICONS } from '../../utils/constants';
 import type { RecipeProps } from '../../utils/types';
 import { IconWrapper, PillsWrapper } from './CuisinePills.styled';
 
-const CuisinePills = ({ recipe }: RecipeProps) => {
+const toCamelKey = (s: string) =>
+  s.toLowerCase().replace(/ ([a-z])/g, (_, c) => c.toUpperCase());
+
+interface CuisinePillsProps extends RecipeProps {
+  overlay?: boolean;
+}
+
+const CuisinePills = ({ recipe, overlay = true }: CuisinePillsProps) => {
+  const { t } = useTranslation();
   const cuisines: string[] = recipe.cuisines ?? [];
 
   if (cuisines.length === 0) return null;
 
   return (
-    <PillsWrapper>
+    <PillsWrapper $overlay={overlay}>
       {cuisines.map((cuisine) => {
         const key = cuisine.toLowerCase();
         const colors = CUISINE_COLORS[key];
@@ -18,7 +27,7 @@ const CuisinePills = ({ recipe }: RecipeProps) => {
           <Chip
             key={cuisine}
             icon={icon ? <IconWrapper>{icon}</IconWrapper> : undefined}
-            label={cuisine}
+            label={t(`cuisines.${toCamelKey(cuisine)}`, { defaultValue: cuisine })}
             sx={{
               backgroundColor: colors?.bg ?? 'var(--color-neutral-light)',
               color: colors?.text ?? 'var(--color-neutral-light-text)',
