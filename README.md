@@ -105,8 +105,10 @@ npm run dev
 
 ## Roadmap
 
-- [ ] Recipe detail page
-- [ ] Search by ingredient or name
+- [ * ] Recipe detail page
+- [ * ] Search by ingredient or name
+- [ * ] Auto AI translation
 - [ ] Favorites / saved recipes
+- [ ] More languages!
 - [ ] Unit and integration tests
 - [ ] Responsive / mobile layout
