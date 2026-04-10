@@ -20,4 +20,10 @@ export default {
   cuisine: {
     showMore: 'Show more',
   },
+  search: {
+    placeholder: 'Search recipes...',
+    button: 'Search',
+    results: '{{count}} results found',
+    noResults: 'No recipes found.',
+  },
 };

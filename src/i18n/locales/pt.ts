@@ -20,4 +20,10 @@ export default {
   cuisine: {
     showMore: 'Mostrar mais',
   },
+  search: {
+    placeholder: 'Pesquisar receitas...',
+    button: 'Pesquisar',
+    results: '{{count}} resultados encontrados',
+    noResults: 'Nenhuma receita encontrada.',
+  },
 };
