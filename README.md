@@ -36,6 +36,7 @@ A recipe discovery web application that lets users browse popular picks, vegetar
 | [i18next](https://www.i18next.com/) | i18n framework |
 | [react-i18next](https://react.i18next.com/) | React bindings |
 | [i18next-browser-languagedetector](https://github.com/i18next/i18next-browser-languageDetector) | Auto language detection |
+| [groq AI](https://groq.com/) | Live auto translation |
 
 Supported languages: **English**, **Spanish**, **Portuguese**, **French**
 
@@ -55,6 +56,7 @@ Supported languages: **English**, **Spanish**, **Portuguese**, **French**
 - **Dark / Light mode** — toggle with a custom MUI switch; persisted in localStorage
 - **Language switcher** — EN / ES / PT / FR, auto-detected from browser
 - **Client-side caching** — API responses cached per-cuisine and per-page to minimize quota usage
+- **Auto translation** — Groq AI powered auto translation for recipes and ingredients, powered by llama-3.3-70b-versatile
 
 ---
 
