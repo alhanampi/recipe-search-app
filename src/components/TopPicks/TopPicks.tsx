@@ -32,11 +32,13 @@ const TopPicks = () => {
   const language = i18n.resolvedLanguage ?? 'en';
 
   useEffect(() => {
+    setCardTranslations(new Map());
     getPopular(language).then(setTopPicks);
   }, [language]);
 
   useEffect(() => {
-    if (!topPicks.length || language === 'en') return;
+    if (!topPicks.length) return;
+    if (language === 'en') { setCardTranslations(new Map()); return; }
     translateCards(
       topPicks.map((r: any) => ({ id: r.id, title: r.title, summary: r.summary?.replace(/<[^>]+>/g, '') ?? '' })),
       language

@@ -109,11 +109,14 @@ const GlobalStyles = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6, p, span, li {
     color: var(--color-text-primary);
+    font-family: 'Red Hat Display', sans-serif;
   }
 
   h1 {
     font-family: 'Carattere', cursive;
   }
 `;
+
+
 
 export default GlobalStyles;

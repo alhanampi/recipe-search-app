@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { CUISINE_ICONS } from '../../utils/constants';
 import { CuisineButton, CuisineName, Grid, IconCircle, ShowAllButton, Title, Wrapper } from './Category.styled';
 
-const CUISINES = Object.entries(CUISINE_ICONS).map(([key, icon]) => ({
-  label: key.charAt(0).toUpperCase() + key.slice(1),
-  icon,
-}));
+const CUISINE_KEYS = Object.entries(CUISINE_ICONS).map(([key, icon]) => ({ key, icon }));
+
+const toCamelKey = (s: string) =>
+  s.toLowerCase().replace(/ ([a-z])/g, (_, c) => c.toUpperCase());
 
 const VISIBLE_COUNT = 4;
 
@@ -17,7 +17,7 @@ const Category = () => {
   const [showAll, setShowAll] = useState(false);
 
   const shuffled = useMemo(
-    () => [...CUISINES].sort(() => Math.random() - 0.5),
+    () => [...CUISINE_KEYS].sort(() => Math.random() - 0.5),
     []
   );
 
@@ -27,14 +27,14 @@ const Category = () => {
     <Wrapper>
       <Title>{t('category.title')}</Title>
       <Grid>
-        {visible.map(({ label, icon }, index) => (
+        {visible.map(({ key, icon }, index) => (
           <CuisineButton
-            key={label}
+            key={key}
             $animated={showAll && index >= VISIBLE_COUNT}
-            onClick={() => navigate(`/${label.toLowerCase()}`)}
+            onClick={() => navigate(`/${key}`)}
           >
             <IconCircle className="icon-circle">{icon}</IconCircle>
-            <CuisineName>{label}</CuisineName>
+            <CuisineName>{t(`cuisines.${toCamelKey(key)}`, { defaultValue: key })}</CuisineName>
           </CuisineButton>
         ))}
       </Grid>

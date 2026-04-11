@@ -28,6 +28,7 @@ import {
   RecipeLink
 } from './RecipePage.styled';
 import { translateRecipe } from '../services/groq';
+import Typography from '@mui/material/Typography';
 
 const RecipePage = () => {
   const { id } = useParams<{ id: string }>();
@@ -35,7 +36,17 @@ const RecipePage = () => {
   const navigate = useNavigate();
   const [recipe, setRecipe] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [isMetric, setIsMetric] = useState(false);
+  const [isMetric, setIsMetric] = useState(() =>
+    localStorage.getItem('unit_preference') === 'metric'
+  );
+
+  const handleUnitToggle = () => {
+    setIsMetric((v) => {
+      const next = !v;
+      localStorage.setItem('unit_preference', next ? 'metric' : 'us');
+      return next;
+    });
+  };
   const [translation, setTranslation] = useState<RecipeTranslation | null>(
     null
   );
@@ -98,7 +109,9 @@ const RecipePage = () => {
         <BackButton onClick={() => navigate(-1)}>
           <FaArrowLeft />
         </BackButton>
-        <Title>{title}</Title>
+        <Typography variant="h2" sx={{ fontSize: '1.8rem' }}>
+          {title}
+        </Typography>
         <CuisinePills recipe={recipe} overlay={false} />
       </TitleRow>
 
@@ -149,7 +162,7 @@ const RecipePage = () => {
             <UnitLabel>{t('recipe.unitUs')}</UnitLabel>
             <AppSwitch
               checked={isMetric}
-              onChange={() => setIsMetric((v) => !v)}
+              onChange={handleUnitToggle}
             />
             <UnitLabel>{t('recipe.unitMetric')}</UnitLabel>
           </UnitToggleRow>

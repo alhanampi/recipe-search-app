@@ -2,7 +2,7 @@
 
 > ⚠️ **Work in Progress** — This project is actively under development. Features, structure, and design are subject to change.
 
-A recipe discovery web application that lets users browse popular picks, vegetarian options, and explore recipes by cuisine category. Built as a personal project to practice modern frontend development patterns.
+A recipe discovery web application that lets users browse popular picks, vegetarian options, explore recipes by cuisine, search by keyword, and view full recipe details. Built as a personal project to practice modern frontend development patterns.
 
 ---
 
@@ -19,7 +19,7 @@ A recipe discovery web application that lets users browse popular picks, vegetar
 | Technology | Purpose |
 |---|---|
 | [styled-components 6](https://styled-components.com/) | Component-scoped CSS-in-JS |
-| [Material UI 9](https://mui.com/) | UI component library (Cards, Chips, AppBar, etc.) |
+| [Material UI 9](https://mui.com/) | UI component library (Cards, Chips, AppBar, Switch, etc.) |
 | CSS custom properties | Centralized theming (light/dark mode) |
 
 ### Routing & Data
@@ -30,33 +30,36 @@ A recipe discovery web application that lets users browse popular picks, vegetar
 | [Spoonacular API](https://spoonacular.com/food-api) | Recipe data source |
 | localStorage | Client-side caching with 24h TTL |
 
-### Internationalization
+### Internationalization & AI
 | Technology | Purpose |
 |---|---|
 | [i18next](https://www.i18next.com/) | i18n framework |
 | [react-i18next](https://react.i18next.com/) | React bindings |
 | [i18next-browser-languagedetector](https://github.com/i18next/i18next-browser-languageDetector) | Auto language detection |
-| [groq AI](https://groq.com/) | Live auto translation |
+| [Groq API](https://groq.com/) (`llama-3.3-70b-versatile`) | AI-powered live translation of recipe content |
 
 Supported languages: **English**, **Spanish**, **Portuguese**, **French**
 
 ### UI & Icons
 | Technology | Purpose |
 |---|---|
-| [react-icons](https://react-icons.github.io/react-icons/) | Icon library (fa, gi, md, lu, pi, tb) |
+| [react-icons](https://react-icons.github.io/react-icons/) | Icon library (fa, fa6, gi, md, lu, pi, tb) |
 | [@splidejs/react-splide](https://splidejs.com/) | Carousel for Top Picks |
 
 ---
 
-## Features (so far)
+## Features
 
 - **Top Picks** — carousel of popular recipes with diet and cuisine tags
 - **Veggie Picks** — curated vegetarian recipes in a list layout
-- **Cuisine Categories** — browse all 27 Spoonacular cuisines; click any to navigate to a dedicated recipe page with pagination
-- **Dark / Light mode** — toggle with a custom MUI switch; persisted in localStorage
-- **Language switcher** — EN / ES / PT / FR, auto-detected from browser
-- **Client-side caching** — API responses cached per-cuisine and per-page to minimize quota usage
-- **Auto translation** — Groq AI powered auto translation for recipes and ingredients, powered by llama-3.3-70b-versatile
+- **Cuisine Categories** — 27 cuisines with icons; click any to navigate to a dedicated page with infinite pagination
+- **Search** — keyword search with result count and pagination
+- **Recipe Detail Page** — full recipe view with hero image, ingredients (US/Metric toggle with images), step-by-step instructions, diet/cuisine tags, and source link
+- **Dark / Light mode** — custom animated MUI switch; state persisted in localStorage
+- **Language switcher** — EN / ES / PT / FR, auto-detected from browser; all UI strings via i18n locale files
+- **AI Translation** — Groq AI translates recipe titles, summaries, ingredients, and instructions when a non-English language is selected; results cached per recipe+language to minimize API usage
+- **Client-side caching** — Spoonacular responses cached per-cuisine, per-query, per-language; session cache preserves accumulated paginated results across navigation
+- **US / Metric toggle** — ingredient amounts switch between unit systems using Spoonacular's built-in measures data (no extra API call)
 
 ---
 
@@ -66,18 +69,24 @@ Supported languages: **English**, **Spanish**, **Portuguese**, **French**
 src/
 ├── assets/
 ├── components/
-│   ├── Category/
-│   ├── CuisinePills/
-│   ├── DietPills/
+│   ├── AppSwitch/        # Shared styled MUI Switch (reused in Header and RecipePage)
+│   ├── Category/         # Cuisine category grid with animated expand/collapse
+│   ├── CuisinePills/     # Localized cuisine tags
+│   ├── DietPills/        # Localized diet tags
 │   ├── Footer/
-│   ├── Header/
-│   ├── TopPicks/
-│   └── VeggiePicks/
-├── context/          # ThemeContext
-├── i18n/             # Locale files (en, es, pt, fr)
-├── pages/            # Home, CuisinePage
-├── services/         # API calls + localStorage caching
-└── utils/            # Shared constants (icons, colors) and types
+│   ├── Header/           # AppBar with theme toggle and language selector
+│   ├── SearchBar/        # Search input with navigation
+│   ├── TopPicks/         # Splide carousel
+│   └── VeggiePicks/      # Card list (layout shared by CuisinePage and SearchPage)
+├── context/              # ThemeContext
+├── i18n/                 # Locale files (en, es, pt, fr)
+├── pages/
+│   ├── Home.tsx
+│   ├── CuisinePage.tsx   # /:cuisine
+│   ├── SearchPage.tsx    # /search/:query
+│   └── RecipePage.tsx    # /recipe/:id
+├── services/             # API calls + localStorage caching (api, cuisineRecipes, search, topPicks, veggiePicks, recipeDetail, groq)
+└── utils/                # constants (icons, colors), types
 ```
 
 ---
@@ -94,8 +103,9 @@ This project was built with assistance from **[Claude](https://claude.ai/) (Anth
 # Install dependencies
 npm install
 
-# Add your Spoonacular API key
-echo "VITE_API_KEY=your_key_here" > .env
+# Add your API keys to .env
+VITE_API_KEY=your_spoonacular_key
+VITE_GROQ_KEY=your_groq_key
 
 # Start dev server
 npm run dev
@@ -105,10 +115,11 @@ npm run dev
 
 ## Roadmap
 
-- [ * ] Recipe detail page
-- [ * ] Search by ingredient or name
-- [ * ] Auto AI translation
+- [x] Recipe detail page
+- [x] Search by ingredient or name
+- [x] AI translation via Groq
+- [x] US / Metric ingredient toggle
 - [ ] Favorites / saved recipes
-- [ ] More languages!
+- [ ] More languages
 - [ ] Unit and integration tests
 - [ ] Responsive / mobile layout

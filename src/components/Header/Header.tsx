@@ -1,6 +1,5 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Select from '@mui/material/Select';
 import type { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,7 +7,7 @@ import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../context/ThemeContext';
 import logo from '../../assets/11401354.png';
-import { Logo, LogoWrapper } from './Header.styled';
+import { Controls, Logo, LogoWrapper, SiteTitle } from './Header.styled';
 import AppSwitch from '../AppSwitch/AppSwitch';
 
 const LANGUAGES = [
@@ -21,6 +20,12 @@ const LANGUAGES = [
 const ThemeSwitch = styled(AppSwitch)(() => ({
   '& .MuiSwitch-switchBase': {
     '&.Mui-checked': {
+      '& + .MuiSwitch-track': {
+        backgroundColor: '#4b5563',
+      },
+      '& .MuiSwitch-thumb': {
+        backgroundColor: '#1e293b',
+      },
       '& .MuiSwitch-thumb:before': {
         backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent('#fff')}" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.7 5.8 5.8 0 006.6 6.7z"/></svg>')`,
       },
@@ -61,22 +66,11 @@ const Header = () => {
       }}
     >
       <Toolbar sx={{ justifyContent: 'space-between' }}>
-        <LogoWrapper>
+        <LogoWrapper href="/">
           <Logo src={logo} alt="logo" />
-          <Typography
-            variant="h6"
-            component="h1"
-            sx={{
-              fontWeight: 500,
-              fontFamily: '"Carattere", cursive',
-              fontSize: '3rem',
-              color: 'var(--color-text-primary)',
-            }}
-          >
-            {t('header.title')}
-          </Typography>
+          <SiteTitle>{t('header.title')}</SiteTitle>
         </LogoWrapper>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <Controls>
           <ThemeSwitch checked={mode === 'dark'} onChange={toggle} />
           <Select
             value={i18n.resolvedLanguage ?? 'en'}
@@ -109,7 +103,7 @@ const Header = () => {
               </MenuItem>
             ))}
           </Select>
-        </div>
+        </Controls>
       </Toolbar>
     </AppBar>
   );

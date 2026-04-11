@@ -106,7 +106,12 @@ const CuisinePage = () => {
   };
 
   useEffect(() => {
-    if (!recipes.length || language === 'en') return;
+    setCardTranslations(new Map());
+  }, [language]);
+
+  useEffect(() => {
+    if (!recipes.length) return;
+    if (language === 'en') { setCardTranslations(new Map()); return; }
     translateCards(
       recipes.map((r) => ({
         id: r.id,

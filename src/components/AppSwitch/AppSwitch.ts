@@ -14,7 +14,7 @@ const AppSwitch = styled(Switch)(() => ({
       transform: 'translateX(18px)',
       '& + .MuiSwitch-track': {
         opacity: 1,
-        backgroundColor: '#4b5563',
+        backgroundColor: '#fcd34d',
       },
     },
   },
@@ -22,9 +22,6 @@ const AppSwitch = styled(Switch)(() => ({
     backgroundColor: '#f59e0b',
     width: 24,
     height: 24,
-    '&.Mui-checked': {
-      backgroundColor: '#1e293b',
-    },
   },
   '& .MuiSwitch-track': {
     opacity: 1,

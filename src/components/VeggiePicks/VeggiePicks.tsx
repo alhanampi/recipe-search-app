@@ -29,11 +29,13 @@ const VeggiePicks = () => {
   const language = i18n.resolvedLanguage ?? 'en';
 
   useEffect(() => {
+    setCardTranslations(new Map());
     getVeggie(language).then(setVeggiePicks);
   }, [language]);
 
   useEffect(() => {
-    if (!veggiePicks.length || language === 'en') return;
+    if (!veggiePicks.length) return;
+    if (language === 'en') { setCardTranslations(new Map()); return; }
     translateCards(
       veggiePicks.map((r: any) => ({ id: r.id, title: r.title, summary: r.summary?.replace(/<[^>]+>/g, '') ?? '' })),
       language

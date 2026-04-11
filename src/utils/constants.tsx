@@ -105,19 +105,6 @@ export const DIET_COLORS: Record<string, PillColor> = {
   whole30:     { bg: 'var(--color-neutral-light)', text: 'var(--color-neutral-light-text)' },
 };
 
-export const DIET_LABELS: Record<string, string> = {
-  vegetarian:  'Vegetarian',
-  vegan:       'Vegan',
-  glutenFree:  'Gluten Free',
-  dairyFree:   'Dairy Free',
-  ketogenic:   'Ketogenic',
-  paleo:       'Paleo',
-  primal:      'Primal',
-  pescetarian: 'Pescetarian',
-  lowFodmap:   'Low FODMAP',
-  whole30:     'Whole30',
-};
-
 export const DIET_ICONS: Record<string, ReactElement> = {
   vegetarian:  <FaLeaf />,
   vegan:       <MdEnergySavingsLeaf />,
