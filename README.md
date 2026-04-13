@@ -1,4 +1,4 @@
-# Recipe Finder
+# The Recipe Planner
 
 **[Live demo →](https://recipe-search-app-nu.vercel.app/)**
 

@@ -1,6 +1,6 @@
 export default {
   header: {
-    title: 'Recipe Finder',
+    title: 'The Recipe Finder',
   },
   topPicks: {
     title: 'Top Picks',
