@@ -17,7 +17,10 @@ import {
   IngredientImage,
   IngredientItem,
   IngredientList,
+  InstructionList,
+  InstructionStep,
   InstructionText,
+  StepNumber,
   MetaRow,
   PillsRow,
   SectionTitle,
@@ -29,6 +32,26 @@ import {
 } from './RecipePage.styled';
 import { translateRecipe } from '../../services/groq';
 import Typography from '@mui/material/Typography';
+
+const UNIT_KEY_MAP: Record<string, string> = {
+  tsp: 'tsp', tsps: 'tsps',
+  Tbsp: 'tbsp', Tbsps: 'tbsps', tbsp: 'tbsp', tbsps: 'tbsps',
+  cup: 'cup', cups: 'cups',
+  oz: 'oz', ozs: 'oz',
+  lb: 'lb', lbs: 'lbs',
+  g: 'g', kg: 'kg', ml: 'ml', l: 'l', L: 'l',
+  'fl oz': 'flOz',
+  serving: 'serving', servings: 'servings',
+  large: 'large', medium: 'medium', small: 'small',
+  pinch: 'pinch', pinches: 'pinches',
+  clove: 'clove', cloves: 'cloves',
+  slice: 'slice', slices: 'slices',
+  piece: 'piece', pieces: 'pieces',
+  bunch: 'bunch', bunches: 'bunches',
+  head: 'head', heads: 'heads',
+  stalk: 'stalk', stalks: 'stalks',
+  can: 'can', cans: 'cans',
+};
 
 const IngredientImageWithFallback = ({ src, alt }: { src: string; alt: string }) => {
   const [broken, setBroken] = useState(false);
@@ -183,8 +206,13 @@ const RecipePage = () => {
               const measures = isMetric
                 ? ing.measures?.metric
                 : ing.measures?.us;
+              const rawUnit = measures?.unitShort ?? '';
+              const unitKey = UNIT_KEY_MAP[rawUnit];
+              const unit = language !== 'en' && unitKey
+                ? t(`units.${unitKey}`, { defaultValue: rawUnit })
+                : rawUnit;
               const amount = measures?.amount
-                ? `${parseFloat(measures.amount.toFixed(2))} ${measures.unitShort}`
+                ? `${parseFloat(measures.amount.toFixed(2))} ${unit}`
                 : '';
               const name = translation?.ingredientNames?.[idx] ?? ing.name;
               return (
@@ -207,19 +235,20 @@ const RecipePage = () => {
       {instructions.length > 0 && (
         <>
           <SectionTitle>{t('recipe.instructions')}</SectionTitle>
-          <InstructionText>
-            {translating ? (
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <CircularProgress size={16} />
-              </Box>
-            ) : (
-              <ol>
-                {instructions.map((step, idx) => (
-                  <li key={idx}>{step}</li>
-                ))}
-              </ol>
-            )}
-          </InstructionText>
+          {translating ? (
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <CircularProgress size={16} />
+            </Box>
+          ) : (
+            <InstructionList>
+              {instructions.map((step, idx) => (
+                <InstructionStep key={idx}>
+                  <StepNumber>{idx + 1}</StepNumber>
+                  <InstructionText>{step}</InstructionText>
+                </InstructionStep>
+              ))}
+            </InstructionList>
+          )}
         </>
       )}
 
