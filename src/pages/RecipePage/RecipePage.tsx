@@ -4,15 +4,16 @@ import { useTranslation } from 'react-i18next';
 import { FaArrowLeft, FaClock } from 'react-icons/fa';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
-import AppSwitch from '../components/AppSwitch/AppSwitch';
-import { getRecipeById } from '../services/recipeDetail';
-import type { RecipeTranslation } from '../utils/types';
-import noPreview from '../assets/nopreview.png';
-import DietPills from '../components/DietPills/DietPills';
-import CuisinePills from '../components/CuisinePills/CuisinePills';
+import AppSwitch from '../../components/AppSwitch/AppSwitch';
+import { getRecipeById } from '../../services/recipeDetail';
+import type { RecipeTranslation } from '../../utils/types';
+import noPreview from '../../assets/nopreview.png';
+import DietPills from '../../components/DietPills/DietPills';
+import CuisinePills from '../../components/CuisinePills/CuisinePills';
 import {
   BackButton,
   HeroImage,
+  BrokenImageIcon,
   IngredientImage,
   IngredientItem,
   IngredientList,
@@ -20,15 +21,26 @@ import {
   MetaRow,
   PillsRow,
   SectionTitle,
-  Title,
   TitleRow,
   UnitLabel,
   UnitToggleRow,
   Wrapper,
   RecipeLink
 } from './RecipePage.styled';
-import { translateRecipe } from '../services/groq';
+import { translateRecipe } from '../../services/groq';
 import Typography from '@mui/material/Typography';
+
+const IngredientImageWithFallback = ({ src, alt }: { src: string; alt: string }) => {
+  const [broken, setBroken] = useState(false);
+  if (broken) return <BrokenImageIcon />;
+  return (
+    <IngredientImage
+      src={src}
+      alt={alt}
+      onError={() => setBroken(true)}
+    />
+  );
+};
 
 const RecipePage = () => {
   const { id } = useParams<{ id: string }>();
@@ -178,10 +190,7 @@ const RecipePage = () => {
               return (
                 <IngredientItem key={ing.id}>
                   {ing.image && (
-                    <IngredientImage
-                      src={`https://spoonacular.com/cdn/ingredients_100x100/${ing.image}`}
-                      alt={name}
-                    />
+                    <IngredientImageWithFallback src={`https://spoonacular.com/cdn/ingredients_100x100/${ing.image}`} alt={name} />
                   )}
                   {translating
                     ? ing.original

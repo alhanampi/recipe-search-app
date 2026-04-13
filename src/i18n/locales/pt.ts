@@ -20,6 +20,37 @@ export default {
   cuisine: {
     showMore: 'Mostrar mais',
   },
+  footer: {
+    about: 'Sobre este projeto',
+  },
+  about: {
+    title: 'Sobre o Recipe Finder',
+    intro: 'O Recipe Finder é um projeto pessoal criado para praticar padrões modernos de desenvolvimento frontend. Permite explorar receitas populares, opções vegetarianas, pesquisar por palavra-chave, filtrar por culinária e aceder aos detalhes completos de cada receita, tudo no seu idioma.',
+    stackTitle: 'Stack tecnológica',
+    stackItems: [
+      'React 19 + TypeScript 6 + Vite 8 — framework principal',
+      'styled-components 6 — CSS-in-JS com propriedades CSS personalizadas para temas claro/escuro',
+      'Material UI 9 — cartões, chips, switches e outros componentes de interface',
+      'React Router 7 — roteamento do lado do cliente',
+      'Spoonacular API — fonte de dados de receitas com suporte a culinárias, dietas, ingredientes e instruções',
+      'i18next — framework de internacionalização com suporte a EN, ES, PT e FR',
+      'Groq API (llama-3.3-70b-versatile) — tradução automática com IA',
+      'localStorage — cache do lado do cliente com TTL de 24h para minimizar o uso da API',
+    ],
+    structureTitle: 'Estrutura do projeto',
+    structureItems: [
+      'components/ — peças de UI reutilizáveis: cartões, pills, barra de pesquisa, grade de categorias, carrossel',
+      'pages/ — vistas completas: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'services/ — todas as chamadas à API e lógica de cache, separadas por domínio',
+      'i18n/ — ficheiros de localização para cada idioma suportado',
+      'utils/ — constantes partilhadas (ícones, cores) e interfaces TypeScript',
+      'context/ — ThemeContext para o modo claro/escuro',
+    ],
+    translationTitle: 'Tradução automática com Groq',
+    translationText: 'Quando um idioma diferente do inglês é selecionado, o Recipe Finder chama a API do Groq para traduzir títulos, resumos, ingredientes e instruções das receitas numa única requisição. Os resultados são guardados em cache no localStorage por receita e idioma para evitar chamadas repetidas. As traduções dos cartões em listagens e resultados de pesquisa são agrupadas numa única chamada por página. As etiquetas da interface e as pills (culinárias e dietas) são traduzidas estaticamente através dos ficheiros de localização do i18n.',
+    authorTitle: 'Autora',
+    authorText: 'Desenvolvido por Pam com a assistência do Claude (Anthropic) como programador par de IA. Todas as decisões de arquitetura e planeamento foram tomadas pela desenvolvedora; o Claude colaborou na implementação, refatorização e depuração.',
+  },
   cuisines: {
     african: 'Africana', asian: 'Asiática', american: 'Americana', british: 'Britânica',
     cajun: 'Cajun', caribbean: 'Caribenha', chinese: 'Chinesa',

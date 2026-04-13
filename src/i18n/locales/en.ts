@@ -20,6 +20,37 @@ export default {
   cuisine: {
     showMore: 'Show more',
   },
+  footer: {
+    about: 'About this project',
+  },
+  about: {
+    title: 'About Recipe Finder',
+    intro: 'Recipe Finder is a personal project built to practice modern frontend development patterns. It lets you browse popular recipes, explore vegetarian options, search by keyword, filter by cuisine, and dive into full recipe details — all in your language.',
+    stackTitle: 'Tech Stack',
+    stackItems: [
+      'React 19 + TypeScript 6 + Vite 8 — core framework',
+      'styled-components 6 — component-scoped CSS-in-JS with CSS custom properties for light/dark theming',
+      'Material UI 9 — cards, chips, switches, and other UI components',
+      'React Router 7 — client-side routing',
+      'Spoonacular API — recipe data source with built-in support for cuisines, diets, ingredients, and instructions',
+      'i18next — internationalization framework supporting EN, ES, PT, and FR',
+      'Groq API (llama-3.3-70b-versatile) — AI-powered live translation',
+      'localStorage — client-side caching with 24h TTL to minimize API usage',
+    ],
+    structureTitle: 'Project Structure',
+    structureItems: [
+      'components/ — reusable UI pieces: cards, pills, search bar, category grid, carousel',
+      'pages/ — full views: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'services/ — all API calls and caching logic, separated by domain',
+      'i18n/ — locale files for each supported language',
+      'utils/ — shared constants (icons, colors) and TypeScript interfaces',
+      'context/ — ThemeContext for light/dark mode',
+    ],
+    translationTitle: 'AI Translation with Groq',
+    translationText: 'When a non-English language is selected, Recipe Finder calls the Groq API to translate recipe titles, summaries, ingredients, and instructions in a single request. Results are cached in localStorage per recipe and language to avoid repeated calls. Card-level translations (listings, search results) are batched together in one call per page. UI labels and pill tags (cuisines, diets) are translated statically via i18n locale files.',
+    authorTitle: 'Author',
+    authorText: 'Built by Pam with assistance from Claude (Anthropic) as an AI pair programmer. All architectural decisions and feature planning were driven by the developer; Claude assisted with implementation, refactoring, and debugging.',
+  },
   cuisines: {
     african: 'African', asian: 'Asian', american: 'American', british: 'British',
     cajun: 'Cajun', caribbean: 'Caribbean', chinese: 'Chinese',

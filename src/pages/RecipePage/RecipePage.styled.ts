@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MdBrokenImage } from 'react-icons/md';
 
 export const Wrapper = styled.section`
   padding: 2rem;
@@ -120,16 +121,49 @@ export const IngredientImage = styled.img`
   flex-shrink: 0;
 `;
 
+export const BrokenImageIcon = styled(MdBrokenImage)`
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+`;
+
+export const InstructionList = styled.ol`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+`;
+
+export const InstructionStep = styled.li`
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+`;
+
+export const StepNumber = styled.span`
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #f59e0b;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
+`;
+
 export const InstructionText = styled.div`
   font-size: 0.95rem;
   line-height: 1.7;
   color: var(--color-text-primary);
-
-  ol {
-    padding-left: 1.5rem;
-  }
-
-  li {
-    margin-bottom: 0.5rem;
-  }
 `;

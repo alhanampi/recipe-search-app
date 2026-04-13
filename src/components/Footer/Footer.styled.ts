@@ -20,3 +20,16 @@ export const HeartIcon = styled(FaHeart)`
   vertical-align: middle;
   margin-left: 0.4rem;
 `;
+
+export const AboutLink = styled.a`
+  font-family: "Carattere", cursive;
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  margin-left: auto;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
+`;

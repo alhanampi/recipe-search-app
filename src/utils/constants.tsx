@@ -14,18 +14,18 @@ import {
   GiBeerStein,
   GiKebabSpit,
   GiShrimp,
-  GiMapleLeaf,
+  GiVikingHelmet,
   GiTeapotLeaves,
   GiCoconuts,
   GiPretzel,
   GiBison,
   GiMeat,
 } from 'react-icons/gi';
-import { MdRiceBowl, MdEnergySavingsLeaf } from 'react-icons/md';
+import { MdEnergySavingsLeaf } from 'react-icons/md';
 import { LuSalad, LuMilkOff } from 'react-icons/lu';
 import { PiBowlFoodBold, PiAvocado } from 'react-icons/pi';
 import { TbMeat, TbBreadOff } from 'react-icons/tb';
-import { FaLeaf, FaFish } from 'react-icons/fa6';
+import { FaLeaf, FaFish, FaStarOfDavid } from 'react-icons/fa6';
 
 
 // ─── Cuisine ────────────────────────────────────────────────────────────────
@@ -77,13 +77,13 @@ export const CUISINE_ICONS: Record<string, ReactElement> = {
   irish:              <GiBeerStein />,
   italian:            <GiTomato />,
   japanese:           <GiSushis />,
-  jewish:             <MdRiceBowl />,
+  jewish:             <FaStarOfDavid />,
   korean:             <GiNoodles />,
   'latin american':   <GiTacos />,
   mediterranean:      <LuSalad />,
   mexican:            <GiTacos />,
   'middle eastern':   <GiKebabSpit />,
-  nordic:             <GiMapleLeaf />,
+  nordic:             <GiVikingHelmet />,
   southern:           <TbMeat />,
   spanish:            <GiCheeseWedge />,
   thai:               <GiCoconuts />,

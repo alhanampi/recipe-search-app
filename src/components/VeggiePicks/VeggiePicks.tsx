@@ -24,7 +24,7 @@ import CuisinePills from '../CuisinePills/CuisinePills';
 const VeggiePicks = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const [veggiePicks, setVeggiePicks] = useState([]);
+  const [veggiePicks, setVeggiePicks] = useState<any[]>([]);
   const [cardTranslations, setCardTranslations] = useState<Map<number, CardTranslation>>(new Map());
   const language = i18n.resolvedLanguage ?? 'en';
 
