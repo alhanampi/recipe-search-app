@@ -1,5 +1,7 @@
 # Recipe Finder
 
+**[Live demo →](https://recipe-search-app-nu.vercel.app/)**
+
 > ⚠️ **Work in Progress** — This project is actively under development. Features, structure, and design are subject to change.
 
 A recipe discovery web application that lets users browse popular picks, vegetarian options, explore recipes by cuisine, search by keyword, and view full recipe details. Built as a personal project to practice modern frontend development patterns.
