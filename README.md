@@ -1,4 +1,4 @@
-# The Recipe Planner
+# Dishcovery
 
 **[Live demo →](https://recipe-search-app-nu.vercel.app/)**
 
