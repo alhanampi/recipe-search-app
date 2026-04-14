@@ -56,15 +56,6 @@ export const CloseButton = styled.button`
 export const Section = styled.div`
   display: flex;
   flex-direction: column;
-  
-`;
-
-export const SectionLabel = styled.span`
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-secondary, var(--color-text-muted));
-  font-weight: 600;
 `;
 
 export const Row = styled.div`

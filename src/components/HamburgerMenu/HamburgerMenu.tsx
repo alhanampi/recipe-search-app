@@ -19,7 +19,6 @@ import {
   OverlayHeader,
   Row,
   Section,
-  SectionLabel,
 } from './HamburgerMenu.styled';
 
 const HamburgerMenu = () => {
