@@ -4,12 +4,20 @@ export const Wrapper = styled.section`
   padding: 2rem;
   max-width: 860px;
   margin: 0 auto;
+
+  @media (max-width: 600px) {
+    padding: 1.25rem 1rem;
+  }
 `;
 
 export const PageTitle = styled.h1`
   font-size: 2rem;
   font-weight: 700;
   margin: 0 0 0.5rem;
+
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Intro = styled.p`
@@ -19,10 +27,19 @@ export const Intro = styled.p`
   margin-bottom: 2.5rem;
   border-bottom: 1px solid var(--color-neutral-border);
   padding-bottom: 2rem;
+
+  @media (max-width: 600px) {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+  }
 `;
 
 export const Section = styled.div`
   margin-bottom: 2rem;
+
+  @media (max-width: 600px) {
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export const SectionTitle = styled.h2`
@@ -64,4 +81,8 @@ export const Divider = styled.hr`
   border: none;
   border-top: 1px solid var(--color-neutral-border);
   margin: 2rem 0;
+
+  @media (max-width: 600px) {
+    margin: 1.25rem 0;
+  }
 `;

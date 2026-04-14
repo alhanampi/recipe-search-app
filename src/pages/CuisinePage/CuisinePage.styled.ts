@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.section`
   padding: 2rem;
+
+  @media (max-width: 600px) {
+    padding: 1.25rem 1rem;
+  }
 `;
 
 export const TitleRow = styled.div`
@@ -10,6 +14,11 @@ export const TitleRow = styled.div`
   gap: 0.75rem;
   width: 80%;
   margin: 0 auto 1.5rem;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const BackButton = styled.button`
@@ -31,6 +40,13 @@ export const BackButton = styled.button`
   &:hover {
     background-color: var(--color-card-bg);
   }
+
+  @media (max-width: 600px) {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.1rem;
+    margin-right: 0.75rem;
+  }
 `;
 
 export const CuisineIcon = styled.span`
@@ -38,6 +54,10 @@ export const CuisineIcon = styled.span`
   display: flex;
   align-items: center;
   color: var(--color-text-primary);
+
+  @media (max-width: 600px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const ShowMoreButton = styled.button`
@@ -57,6 +77,10 @@ export const ShowMoreButton = styled.button`
   &:hover {
     background-color: var(--color-card-bg);
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const ResultCount = styled.p`
@@ -64,6 +88,10 @@ export const ResultCount = styled.p`
   color: var(--color-text-muted);
   width: 80%;
   margin: 0 auto 1rem;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const Title = styled.h2`
@@ -71,4 +99,8 @@ export const Title = styled.h2`
   font-weight: 700;
   text-transform: capitalize;
   margin: 0;
+
+  @media (max-width: 600px) {
+    font-size: 1.3rem;
+  }
 `;

@@ -9,6 +9,10 @@ export const Wrapper = styled.section`
   .splide__track {
     overflow: visible;
   }
+
+  @media (max-width: 600px) {
+    padding: 1.25rem 1rem;
+  }
 `;
 
 export const Title = styled.h2`
@@ -17,19 +21,33 @@ export const Title = styled.h2`
   margin: 0 0 1.5rem;
   display: flex;
   align-items: center;
+
+  @media (max-width: 600px) {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const StyledCard = styled(MuiCard)`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease !important;
-  background-color: var(--color-card-bg) !important;
-  border-radius: 15px !important;
-  padding-top: 1rem;
+  && {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+    background-color: var(--color-card-bg);
+    border-radius: 15px;
+    padding-top: 1rem;
+    overflow: hidden;
 
-  &:hover {
-    transform: translateY(-4px);
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    @media (max-width: 600px) {
+      height: 25vh;
+      min-height: 180px;
+      padding-top: 0;
+    }
   }
 `;
 
@@ -40,6 +58,11 @@ export const CardTitleBox = styled.div`
   justify-content: center;
   padding: 0 0.5rem;
   overflow: hidden;
+  flex-shrink: 0;
+
+  @media (max-width: 600px) {
+    height: 2.75rem;
+  }
 `;
 
 export const CardTitleText = styled.span`
@@ -50,10 +73,21 @@ export const CardTitleText = styled.span`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  @media (max-width: 600px) {
+    font-size: 0.85rem;
+  }
 `;
 
 export const ImageWrapper = styled.div`
   position: relative;
+  height: 180px;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  @media (max-width: 600px) {
+    height: 120px;
+  }
 `;
 
 export const CuisineOverlay = styled.div`
@@ -64,8 +98,15 @@ export const CuisineOverlay = styled.div`
 `;
 
 export const StyledCardContent = styled(CardContent)`
-  text-align: center;
-  padding-bottom: 0.5rem !important;
+  && {
+    text-align: center;
+    padding-bottom: 0.5rem;
+    flex-shrink: 0;
+
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
 `;
 
 export const ClockRow = styled.p`
@@ -101,8 +142,22 @@ export const ViewRecipeButton = styled.button`
   cursor: pointer;
   color: var(--color-card-bg);
   transition: opacity 0.15s ease;
+  flex-shrink: 0;
 
   &:hover {
     opacity: 0.8;
+  }
+
+  @media (max-width: 600px) {
+    margin: auto auto 0.4rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+`;
+
+export const MobileHide = styled.div`
+  @media (max-width: 600px) {
+    display: none;
   }
 `;

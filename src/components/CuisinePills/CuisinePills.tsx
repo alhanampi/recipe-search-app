@@ -1,4 +1,5 @@
 import Chip from '@mui/material/Chip';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTranslation } from 'react-i18next';
 import { CUISINE_COLORS, CUISINE_ICONS } from '../../utils/constants';
 import type { RecipeProps } from '../../utils/types';
@@ -13,6 +14,7 @@ interface CuisinePillsProps extends RecipeProps {
 
 const CuisinePills = ({ recipe, overlay = true }: CuisinePillsProps) => {
   const { t } = useTranslation();
+  const isMobile = useMediaQuery('(max-width:600px)');
   const cuisines: string[] = recipe.cuisines ?? [];
 
   if (cuisines.length === 0) return null;
@@ -32,9 +34,9 @@ const CuisinePills = ({ recipe, overlay = true }: CuisinePillsProps) => {
               backgroundColor: colors?.bg ?? 'var(--color-neutral-light)',
               color: colors?.text ?? 'var(--color-neutral-light-text)',
               fontWeight: 600,
-              fontSize: '1rem',
+              fontSize: isMobile ? '0.7rem' : '1rem',
               height: 'auto',
-              '& .MuiChip-label': { padding: '5px 20px' },
+              '& .MuiChip-label': { padding: isMobile ? '3px 10px' : '5px 20px' },
               '& .MuiChip-icon': { color: 'inherit', marginLeft: '4px', marginRight: '-8px' },
             }}
           />

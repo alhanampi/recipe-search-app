@@ -14,6 +14,7 @@ import {
   ClockRow,
   CuisineOverlay,
   ImageWrapper,
+  MobileHide,
   StyledCard,
   StyledCardContent,
   SummaryText,
@@ -55,6 +56,12 @@ const TopPicks = () => {
           pagination: false,
           rewind: true,
           drag: 'free',
+          breakpoints: {
+            800: {
+              perPage: 2,
+              gap: '1rem',
+            },
+          },
         }}
       >
         {topPicks.map((recipe: any) => {
@@ -72,12 +79,12 @@ const TopPicks = () => {
                 <ImageWrapper>
                   <CardMedia
                     component="img"
-                    height="200"
                     image={recipe.image ?? noPreview}
                     alt={title}
                     onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                       e.currentTarget.src = noPreview;
                     }}
+                    sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <CuisineOverlay>
                     <CuisinePills recipe={recipe} />
@@ -94,7 +101,9 @@ const TopPicks = () => {
                     </SummaryText>
                   )}
                 </StyledCardContent>
-                <DietPills recipe={recipe} />
+                <MobileHide>
+                  <DietPills recipe={recipe} />
+                </MobileHide>
                 <ViewRecipeButton onClick={() => navigate(`/recipe/${recipe.id}`)}>
                   {t('recipe.viewFull')}
                 </ViewRecipeButton>

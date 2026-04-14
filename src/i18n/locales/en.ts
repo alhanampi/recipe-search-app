@@ -1,6 +1,11 @@
 export default {
   header: {
     title: 'Dishcovery',
+    search: 'Search',
+    theme: 'Theme',
+    language: 'Language',
+    dark: 'Dark',
+    light: 'Light',
   },
   topPicks: {
     title: 'Top Picks',

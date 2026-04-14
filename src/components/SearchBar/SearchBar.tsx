@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { FaSearch } from 'react-icons/fa';
 import { Form, Input, SearchButton, Wrapper } from './SearchBar.styled';
 
-const SearchBar = () => {
+const SearchBar = ({ onSubmit, hideOnMobile, compact }: { onSubmit?: () => void; hideOnMobile?: boolean; compact?: boolean } = {}) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
@@ -14,10 +14,11 @@ const SearchBar = () => {
     const trimmed = query.trim();
     if (!trimmed) return;
     navigate(`/search/${encodeURIComponent(trimmed)}`);
+    onSubmit?.();
   };
 
   return (
-    <Wrapper>
+    <Wrapper $hideOnMobile={hideOnMobile} $compact={compact}>
       <Form onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -25,9 +26,8 @@ const SearchBar = () => {
           onChange={(e) => setQuery(e.target.value)}
           placeholder={t('search.placeholder')}
         />
-        <SearchButton type="submit">
+        <SearchButton type="submit" aria-label={t('search.button')}>
           <FaSearch />
-          {t('search.button')}
         </SearchButton>
       </Form>
     </Wrapper>

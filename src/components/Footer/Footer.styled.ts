@@ -7,12 +7,21 @@ export const FooterWrapper = styled.footer`
   font-family: "Carattere", cursive;
   margin: 0 -2rem;
   padding: 0 2rem;
+
+  @media (max-width: 600px) {
+    margin: 0 -1rem;
+    padding: 0 1rem;
+  }
 `;
 
 export const FooterText = styled.span`
   font-family: "Carattere", cursive;
   font-size: 2rem;
   color: var(--color-text-primary);
+
+  @media (max-width: 600px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const HeartIcon = styled(FaHeart)`
@@ -31,5 +40,13 @@ export const AboutLink = styled.a`
 
   &:hover {
     color: var(--color-text-primary);
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 600px) {
+    display: none;
   }
 `;

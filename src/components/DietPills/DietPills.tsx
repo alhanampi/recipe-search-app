@@ -6,19 +6,23 @@ import { IconWrapper, PillsWrapper } from './DietPills.styled';
 
 const DIET_KEYS = ['vegetarian', 'vegan', 'glutenFree', 'dairyFree', 'ketogenic', 'paleo', 'primal', 'pescetarian', 'lowFodmap', 'whole30'];
 
-const DietPills = ({ recipe }: RecipeProps) => {
+interface DietPillsProps extends RecipeProps {
+  compact?: boolean;
+}
+
+const DietPills = ({ recipe, compact = false }: DietPillsProps) => {
   const { t } = useTranslation();
   const active = DIET_KEYS.filter((key) => recipe[key] === true);
 
   if (active.length === 0) return null;
 
   return (
-    <PillsWrapper>
+    <PillsWrapper style={compact ? { gap: '0.2rem', padding: '0 0.4rem 0.4rem' } : undefined}>
       {active.map((diet) => (
         <Chip
           key={diet}
           icon={
-            DIET_ICONS[diet] ? (
+            !compact && DIET_ICONS[diet] ? (
               <IconWrapper>{DIET_ICONS[diet]}</IconWrapper>
             ) : undefined
           }
@@ -28,7 +32,9 @@ const DietPills = ({ recipe }: RecipeProps) => {
             backgroundColor: DIET_COLORS[diet]?.bg ?? 'var(--color-neutral-border)',
             color: DIET_COLORS[diet]?.text ?? 'var(--color-neutral-light-text)',
             fontWeight: 600,
-            fontSize: '0.7rem',
+            fontSize: compact ? '0.55rem' : '0.7rem',
+            height: compact ? '18px' : undefined,
+            '& .MuiChip-label': compact ? { padding: '0 6px' } : undefined,
             '& .MuiChip-icon': {
               color: 'inherit',
               marginLeft: '4px',

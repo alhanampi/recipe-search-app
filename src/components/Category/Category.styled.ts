@@ -13,12 +13,21 @@ const fadeSlideIn = keyframes`
 
 export const Wrapper = styled.section`
   padding: 2rem;
+
+  @media (max-width: 600px) {
+    padding: 1.25rem 1rem;
+  }
 `;
 
 export const Title = styled.h2`
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 600px) {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const Grid = styled.div`
@@ -26,6 +35,14 @@ export const Grid = styled.div`
   flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: center;
+
+  @media (max-width: 600px) {
+    gap: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    gap: 0.75rem;
+  }
 `;
 
 export const CuisineButton = styled.button<{ $animated?: boolean }>`
@@ -62,6 +79,18 @@ export const IconCircle = styled.div`
   font-size: 2.2rem;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   color: var(--color-text);
+
+  @media (max-width: 600px) {
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 600px) {
+    width: 3.75rem;
+    height: 3.75rem;
+    font-size: 1.5rem;
+  }
 `;
 
 export const CuisineName = styled.span`
@@ -70,6 +99,11 @@ export const CuisineName = styled.span`
   text-align: center;
   max-width: 6rem;
   line-height: 1.2;
+
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+    max-width: 4.5rem;
+  }
 `;
 
 export const ShowAllButton = styled.button`
@@ -77,7 +111,7 @@ export const ShowAllButton = styled.button`
   display: block;
   margin-left: auto;
   margin-right: auto;
-background-color: var(--color-yellow-light);
+  background-color: var(--color-yellow-light);
   border: 1px solid var(--color-neutral-border);
   border-radius: 2rem;
   padding: 0.6rem 1.75rem;

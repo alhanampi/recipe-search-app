@@ -116,6 +116,13 @@ export const DIET_ICONS: Record<string, ReactElement> = {
   ketogenic:   <PiAvocado />,
 };
 
+export const LANGUAGES = [
+  { code: 'en', label: 'English' },
+  { code: 'es', label: 'Español' },
+  { code: 'pt', label: 'Português' },
+  { code: 'fr', label: 'Français' },
+];
+
 export const LANGUAGE_NAMES: Record<string, string> = {
   es: 'Spanish',
   fr: 'French',

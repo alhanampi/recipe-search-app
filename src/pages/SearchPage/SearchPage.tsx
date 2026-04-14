@@ -17,7 +17,9 @@ import {
   CardImageWrapper,
   CardInner,
   CardList,
+  CardTitleRow,
   CuisinePillsOverlay,
+  DesktopTitle,
   ViewRecipeButton,
 } from '../../components/VeggiePicks/VeggiePicks.styled';
 import {
@@ -133,6 +135,7 @@ const SearchPage = () => {
                   }}
                 >
                   <CardInner>
+                    <CardTitleRow>{title.charAt(0).toUpperCase() + title.slice(1)}</CardTitleRow>
                     <CardImageWrapper>
                       <img
                         src={recipe.image ?? noPreview}
@@ -146,19 +149,21 @@ const SearchPage = () => {
                       </CuisinePillsOverlay>
                     </CardImageWrapper>
                     <CardBody>
-                      <Typography
-                        variant="subtitle1"
-                        sx={{
-                          fontWeight: 600,
-                          fontSize: '1.1rem',
-                          textAlign: 'center',
-                          borderBottom: '1px solid var(--color-neutral-border)',
-                          width: '100%',
-                          py: 1.5,
-                        }}
-                      >
-                        {title.charAt(0).toUpperCase() + title.slice(1)}
-                      </Typography>
+                      <DesktopTitle>
+                        <Typography
+                          variant="subtitle1"
+                          sx={{
+                            fontWeight: 600,
+                            fontSize: '1.1rem',
+                            textAlign: 'center',
+                            borderBottom: '1px solid var(--color-neutral-border)',
+                            width: '100%',
+                            py: 1.5,
+                          }}
+                        >
+                          {title.charAt(0).toUpperCase() + title.slice(1)}
+                        </Typography>
+                      </DesktopTitle>
                       <Typography variant="body2" color="text.secondary">
                         <FaClock style={{ marginRight: '0.35rem', verticalAlign: 'middle' }} />
                         {t('veggiePicks.readyIn')} {recipe.readyInMinutes} {t('veggiePicks.minutes')}

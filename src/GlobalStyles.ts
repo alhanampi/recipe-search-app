@@ -92,6 +92,9 @@ const GlobalStyles = createGlobalStyle`
 
   #root {
     padding: 0 2rem;
+    @media (max-width: 600px) {
+      padding: 0 1rem;
+    }
   }
 
   body {

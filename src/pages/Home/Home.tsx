@@ -6,7 +6,7 @@ import VeggiePicks from '../../components/VeggiePicks/VeggiePicks';
 const Home = () => {
   return (
     <div>
-      <SearchBar />
+      <SearchBar hideOnMobile />
       <Category />
       <TopPicks />
       <VeggiePicks />

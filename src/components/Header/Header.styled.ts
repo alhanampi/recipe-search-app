@@ -20,10 +20,18 @@ export const SiteTitle = styled.h1`
   color: var(--color-text-primary);
   margin: 0;
   line-height: 1;
+
+  @media (max-width: 600px) {
+    font-size: 1.9rem;
+  }
 `;
 
 export const Controls = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;

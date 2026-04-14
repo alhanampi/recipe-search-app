@@ -6,6 +6,10 @@ export const Wrapper = styled.section`
   max-width: 900px;
   margin: 0 auto;
   background-color: var(--color-card-bg);
+
+  @media (max-width: 600px) {
+    padding: 1.25rem 1rem;
+  }
 `;
 
 export const TitleRow = styled.div`
@@ -13,6 +17,11 @@ export const TitleRow = styled.div`
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 600px) {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const BackButton = styled.button`
@@ -34,6 +43,13 @@ export const BackButton = styled.button`
   &:hover {
     background-color: var(--color-card-bg);
   }
+
+  @media (max-width: 600px) {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+  }
 `;
 
 export const Title = styled.h1`
@@ -49,6 +65,12 @@ export const HeroImage = styled.img`
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 600px) {
+    max-height: 240px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const MetaRow = styled.div`
@@ -58,6 +80,12 @@ export const MetaRow = styled.div`
   margin-bottom: 1.5rem;
   font-size: 0.9rem;
   color: var(--color-text-muted);
+
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const PillsRow = styled.div`
@@ -71,6 +99,11 @@ export const SectionTitle = styled.h2`
   font-size: 1.25rem;
   font-weight: 700;
   margin: 1.5rem 0 0.75rem;
+
+  @media (max-width: 600px) {
+    font-size: 1.1rem;
+    margin: 1.25rem 0 0.6rem;
+  }
 `;
 
 export const UnitToggleRow = styled.div`
@@ -105,6 +138,11 @@ export const IngredientList = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem 2rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
 `;
 
 export const IngredientItem = styled.li`
