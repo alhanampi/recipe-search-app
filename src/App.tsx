@@ -25,11 +25,46 @@ const App = () => {
       <ThemeProvider>
         <GlobalStyles />
         <Routes>
-          <Route path="/" element={<Layout><Home /></Layout>} />
-          <Route path="/search/:query" element={<Layout><SearchPage /></Layout>} />
-          <Route path="/recipe/:id" element={<Layout><RecipePage /></Layout>} />
-          <Route path="/about" element={<Layout><AboutPage /></Layout>} />
-          <Route path="/:cuisine" element={<Layout><CuisinePage /></Layout>} />
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <Home />
+              </Layout>
+            }
+          />
+          <Route
+            path="/search/:query"
+            element={
+              <Layout>
+                <SearchPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/recipe/:id"
+            element={
+              <Layout>
+                <RecipePage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Layout>
+                <AboutPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/:cuisine"
+            element={
+              <Layout>
+                <CuisinePage />
+              </Layout>
+            }
+          />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

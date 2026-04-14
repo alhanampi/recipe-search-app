@@ -4,7 +4,15 @@ import { useTranslation } from 'react-i18next';
 import { FaSearch } from 'react-icons/fa';
 import { Form, Input, SearchButton, Wrapper } from './SearchBar.styled';
 
-const SearchBar = ({ onSubmit, hideOnMobile, compact }: { onSubmit?: () => void; hideOnMobile?: boolean; compact?: boolean } = {}) => {
+const SearchBar = ({
+  onSubmit,
+  hideOnMobile,
+  compact,
+}: {
+  onSubmit?: () => void;
+  hideOnMobile?: boolean;
+  compact?: boolean;
+} = {}) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [query, setQuery] = useState('');

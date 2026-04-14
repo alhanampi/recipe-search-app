@@ -2,6 +2,8 @@ import axios from 'axios';
 import type { PagedCache, PagedResult } from '../utils/types';
 
 export const CACHE_TTL = 1000 * 60 * 60 * 24;
+export const sessionKey = (prefix: string, value: string, language: string) =>
+  `${prefix}_${value.toLowerCase()}_session_${language}`;
 export const PAGE_SIZE = 10;
 
 const BASE_URL = 'https://api.spoonacular.com/recipes';

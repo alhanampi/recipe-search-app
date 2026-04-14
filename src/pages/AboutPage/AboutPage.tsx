@@ -14,13 +14,21 @@ import {
 const AboutPage = () => {
   const { t } = useTranslation();
 
-  const stackItems: string[] = t('about.stackItems', { returnObjects: true }) as string[];
-  const structureItems: string[] = t('about.structureItems', { returnObjects: true }) as string[];
+  const stackItems: string[] = t('about.stackItems', {
+    returnObjects: true,
+  }) as string[];
+  const structureItems: string[] = t('about.structureItems', {
+    returnObjects: true,
+  }) as string[];
 
   const formatItem = (item: string) => {
     const [before, ...rest] = item.split('—');
     if (!rest.length) return <>{item}</>;
-    return <><strong>{before.trim()}</strong> — {rest.join('—').trim()}</>;
+    return (
+      <>
+        <strong>{before.trim()}</strong> — {rest.join('—').trim()}
+      </>
+    );
   };
 
   return (

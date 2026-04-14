@@ -128,3 +128,17 @@ export const LANGUAGE_NAMES: Record<string, string> = {
   fr: 'French',
   pt: 'Portuguese',
 };
+
+export 
+const DIET_KEYS = [
+  'vegetarian',
+  'vegan',
+  'glutenFree',
+  'dairyFree',
+  'ketogenic',
+  'paleo',
+  'primal',
+  'pescetarian',
+  'lowFodmap',
+  'whole30',
+];

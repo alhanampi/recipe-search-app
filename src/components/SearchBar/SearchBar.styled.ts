@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.section<{ $hideOnMobile?: boolean; $compact?: boolean }>`
+export const Wrapper = styled.section<{
+  $hideOnMobile?: boolean;
+  $compact?: boolean;
+}>`
   padding: ${({ $compact }) => ($compact ? '0' : '2rem 2rem 0')};
 
   ${({ $hideOnMobile }) =>

@@ -29,7 +29,9 @@ const TopPicks = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [topPicks, setTopPicks] = useState<any[]>([]);
-  const [cardTranslations, setCardTranslations] = useState<Map<number, CardTranslation>>(new Map());
+  const [cardTranslations, setCardTranslations] = useState<
+    Map<number, CardTranslation>
+  >(new Map());
   const language = i18n.resolvedLanguage ?? 'en';
 
   useEffect(() => {
@@ -39,9 +41,16 @@ const TopPicks = () => {
 
   useEffect(() => {
     if (!topPicks.length) return;
-    if (language === 'en') { setCardTranslations(new Map()); return; }
+    if (language === 'en') {
+      setCardTranslations(new Map());
+      return;
+    }
     translateCards(
-      topPicks.map((r: any) => ({ id: r.id, title: r.title, summary: r.summary?.replace(/<[^>]+>/g, '') ?? '' })),
+      topPicks.map((r: any) => ({
+        id: r.id,
+        title: r.title,
+        summary: r.summary?.replace(/<[^>]+>/g, '') ?? '',
+      })),
       language
     ).then(setCardTranslations);
   }, [topPicks, language]);
@@ -67,7 +76,8 @@ const TopPicks = () => {
         {topPicks.map((recipe: any) => {
           const tr = cardTranslations.get(recipe.id);
           const title = tr?.title ?? recipe.title;
-          const summary = tr?.summary ?? recipe.summary?.replace(/<[^>]+>/g, '');
+          const summary =
+            tr?.summary ?? recipe.summary?.replace(/<[^>]+>/g, '');
           return (
             <SplideSlide key={recipe.id}>
               <StyledCard>
@@ -93,18 +103,19 @@ const TopPicks = () => {
                 <StyledCardContent>
                   <ClockRow>
                     <ClockIcon />
-                    {t('topPicks.readyIn')} {recipe.readyInMinutes} {t('topPicks.minutes')}
+                    {t('topPicks.readyIn')} {recipe.readyInMinutes}{' '}
+                    {t('topPicks.minutes')}
                   </ClockRow>
                   {summary && (
-                    <SummaryText>
-                      {summary.slice(0, 150)}...
-                    </SummaryText>
+                    <SummaryText>{summary.slice(0, 150)}...</SummaryText>
                   )}
                 </StyledCardContent>
                 <MobileHide>
                   <DietPills recipe={recipe} />
                 </MobileHide>
-                <ViewRecipeButton onClick={() => navigate(`/recipe/${recipe.id}`)}>
+                <ViewRecipeButton
+                  onClick={() => navigate(`/recipe/${recipe.id}`)}
+                >
                   {t('recipe.viewFull')}
                 </ViewRecipeButton>
               </StyledCard>

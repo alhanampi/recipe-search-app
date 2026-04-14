@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const PillsWrapper = styled.div`
+export const PillsWrapper = styled.div<{ $compact?: boolean }>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.4rem;
-  padding: 0 0.75rem 0.75rem;
+  gap: ${({ $compact }) => ($compact ? '0.2rem' : '0.4rem')};
+  padding: ${({ $compact }) => ($compact ? '0 0.4rem 0.4rem' : '0 0.75rem 0.75rem')};
 `;
 
 export const IconWrapper = styled.span`

@@ -58,7 +58,9 @@ const Header = () => {
                 minWidth: 130,
                 ml: 1,
                 color: 'var(--color-text-primary)',
-                '& .MuiOutlinedInput-notchedOutline': { borderColor: 'var(--color-neutral-border)' },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'var(--color-neutral-border)',
+                },
                 '& .MuiSvgIcon-root': { color: 'var(--color-text-primary)' },
               }}
             >

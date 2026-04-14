@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { FaArrowLeft, FaClock } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
 import MuiCard from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
@@ -9,6 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { getCuisineRecipes } from '../../services/cuisineRecipes';
 import { translateCards, type CardTranslation } from '../../services/groq';
+import { CACHE_TTL, sessionKey } from '../../services/api';
 import noPreview from '../../assets/nopreview.png';
 import DietPills from '../../components/DietPills/DietPills';
 import CuisinePills from '../../components/CuisinePills/CuisinePills';
@@ -17,6 +18,7 @@ import {
   CardImageWrapper,
   CardInner,
   CardList,
+  ClockIcon,
   CuisinePillsOverlay,
   ViewRecipeButton,
 } from '../../components/VeggiePicks/VeggiePicks.styled';
@@ -31,9 +33,6 @@ import {
   Wrapper,
 } from './CuisinePage.styled';
 
-const sessionKey = (cuisine: string, language: string) =>
-  `cuisine_${cuisine.toLowerCase()}_session_${language}`;
-const CACHE_TTL = 1000 * 60 * 60 * 24;
 
 const CuisinePage = () => {
   const { cuisine } = useParams<{ cuisine: string }>();
@@ -51,7 +50,7 @@ const CuisinePage = () => {
   useEffect(() => {
     if (!cuisine) return;
 
-    const cached = localStorage.getItem(sessionKey(cuisine, language));
+    const cached = localStorage.getItem(sessionKey('cuisine', cuisine, language));
     if (cached) {
       const {
         recipes: saved,
@@ -72,7 +71,7 @@ const CuisinePage = () => {
         setRecipes(data);
         setTotalResults(total);
         localStorage.setItem(
-          sessionKey(cuisine, language),
+          sessionKey('cuisine', cuisine, language),
           JSON.stringify({
             recipes: data,
             totalResults: total,
@@ -93,7 +92,7 @@ const CuisinePage = () => {
         setRecipes(accumulated);
         setTotalResults(total);
         localStorage.setItem(
-          sessionKey(cuisine, language),
+          sessionKey('cuisine', cuisine, language),
           JSON.stringify({
             recipes: accumulated,
             totalResults: total,
@@ -111,7 +110,10 @@ const CuisinePage = () => {
 
   useEffect(() => {
     if (!recipes.length) return;
-    if (language === 'en') { setCardTranslations(new Map()); return; }
+    if (language === 'en') {
+      setCardTranslations(new Map());
+      return;
+    }
     translateCards(
       recipes.map((r) => ({
         id: r.id,
@@ -192,12 +194,7 @@ const CuisinePage = () => {
                         {title.charAt(0).toUpperCase() + title.slice(1)}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        <FaClock
-                          style={{
-                            marginRight: '0.35rem',
-                            verticalAlign: 'middle',
-                          }}
-                        />
+                        <ClockIcon />
                         {t('veggiePicks.readyIn')} {recipe.readyInMinutes}{' '}
                         {t('veggiePicks.minutes')}
                       </Typography>

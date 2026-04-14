@@ -124,4 +124,4 @@ npm run dev
 - [ ] Favorites / saved recipes
 - [ ] More languages
 - [ ] Unit and integration tests
-- [ ] Responsive / mobile layout
+- [x] Responsive / mobile layout

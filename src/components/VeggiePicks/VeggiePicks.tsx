@@ -5,7 +5,6 @@ import MuiCard from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { FaClock } from 'react-icons/fa';
 import { getVeggie } from '../../services/veggiePicks';
 import { translateCards, type CardTranslation } from '../../services/groq';
 import noPreview from '../../assets/nopreview.png';
@@ -15,6 +14,7 @@ import {
   CardInner,
   CardList,
   CardTitleRow,
+  ClockIcon,
   CuisinePillsOverlay,
   DesktopTitle,
   MobileHide,
@@ -79,7 +79,9 @@ const VeggiePicks = () => {
               }}
             >
               <CardInner>
-                <CardTitleRow>{title.charAt(0).toUpperCase() + title.slice(1)}</CardTitleRow>
+                <CardTitleRow>
+                  {title.charAt(0).toUpperCase() + title.slice(1)}
+                </CardTitleRow>
                 <CardImageWrapper>
                   <img
                     src={recipe.image ?? noPreview}
@@ -110,12 +112,7 @@ const VeggiePicks = () => {
                   </DesktopTitle>
                   <MobileHide>
                     <Typography variant="body2" color="text.secondary">
-                      <FaClock
-                        style={{
-                          marginRight: '0.35rem',
-                          verticalAlign: 'middle',
-                        }}
-                      />
+                      <ClockIcon />
                       {t('veggiePicks.readyIn')} {recipe.readyInMinutes}{' '}
                       {t('veggiePicks.minutes')}
                     </Typography>

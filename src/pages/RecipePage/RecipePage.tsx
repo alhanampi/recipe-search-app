@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { FaArrowLeft, FaClock } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import AppSwitch from '../../components/AppSwitch/AppSwitch';
@@ -14,6 +14,7 @@ import {
   BackButton,
   HeroImage,
   BrokenImageIcon,
+  ClockIcon,
   IngredientImage,
   IngredientItem,
   IngredientList,
@@ -160,9 +161,7 @@ const RecipePage = () => {
 
       <MetaRow>
         <span>
-          <FaClock
-            style={{ verticalAlign: 'middle', marginRight: '0.35rem' }}
-          />
+          <ClockIcon />
           {t('topPicks.readyIn')} {recipe.readyInMinutes}{' '}
           {t('topPicks.minutes')}
         </span>

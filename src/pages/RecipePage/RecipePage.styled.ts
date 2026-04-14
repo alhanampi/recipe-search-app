@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 import { MdBrokenImage } from 'react-icons/md';
+import { FaClock } from 'react-icons/fa';
+
+export const ClockIcon = styled(FaClock)`
+  vertical-align: middle;
+  margin-right: 0.35rem;
+  flex-shrink: 0;
+`;
 
 export const Wrapper = styled.section`
   padding: 2rem;

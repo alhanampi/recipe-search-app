@@ -41,7 +41,6 @@ const GlobalStyles = createGlobalStyle`
     --color-text-muted:          #6b7280;
     --color-card-bg:             #fafbfd;
     --color-header-bg:           #ffffff;
-    /* --color-body-overlay:        rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9); */
     --color-text-primary:        #111827;
     --color-footer-bg:           #ffffff;
     --bg-image:                  url(${bgImage});
@@ -54,7 +53,6 @@ const GlobalStyles = createGlobalStyle`
     --color-text-muted:          #9ca3af;
     --color-card-bg:             #1e2433;
     --color-header-bg:           #111827;
-    /* --color-body-overlay:        rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9); */
     --color-text-primary:        #f9fafb;
     --color-footer-bg:           #111827;
     --bg-image:                  url(${bgDark});
@@ -102,10 +100,6 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     color: var(--color-text-primary);
     background-color: var(--color-neutral-light);
-    /* background-image: linear-gradient(var(--color-body-overlay)), var(--bg-image); */
-    /* background-size: cover;
-    background-position: center;
-    background-attachment: fixed; */
     min-height: 100vh;
     transition: color 0.3s ease;
   }

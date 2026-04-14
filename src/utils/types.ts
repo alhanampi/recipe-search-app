@@ -22,3 +22,7 @@ export interface RecipeTranslation {
   ingredientNames: string[];
   instructions: string[];
 }
+
+export interface DietPillsProps extends RecipeProps {
+  compact?: boolean;
+}
