@@ -2,9 +2,20 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { CUISINE_ICONS } from '../../utils/constants';
-import { CuisineButton, CuisineName, Grid, IconCircle, ShowAllButton, Title, Wrapper } from './Category.styled';
+import {
+  CuisineButton,
+  CuisineName,
+  Grid,
+  IconCircle,
+  ShowAllButton,
+  Title,
+  Wrapper,
+} from './Category.styled';
 
-const CUISINE_KEYS = Object.entries(CUISINE_ICONS).map(([key, icon]) => ({ key, icon }));
+const CUISINE_KEYS = Object.entries(CUISINE_ICONS).map(([key, icon]) => ({
+  key,
+  icon,
+}));
 
 const toCamelKey = (s: string) =>
   s.toLowerCase().replace(/ ([a-z])/g, (_, c) => c.toUpperCase());
@@ -34,7 +45,9 @@ const Category = () => {
             onClick={() => navigate(`/${key}`)}
           >
             <IconCircle className="icon-circle">{icon}</IconCircle>
-            <CuisineName>{t(`cuisines.${toCamelKey(key)}`, { defaultValue: key })}</CuisineName>
+            <CuisineName>
+              {t(`cuisines.${toCamelKey(key)}`, { defaultValue: key })}
+            </CuisineName>
           </CuisineButton>
         ))}
       </Grid>

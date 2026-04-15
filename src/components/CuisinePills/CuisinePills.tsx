@@ -29,15 +29,23 @@ const CuisinePills = ({ recipe, overlay = true }: CuisinePillsProps) => {
           <Chip
             key={cuisine}
             icon={icon ? <IconWrapper>{icon}</IconWrapper> : undefined}
-            label={t(`cuisines.${toCamelKey(cuisine)}`, { defaultValue: cuisine })}
+            label={t(`cuisines.${toCamelKey(cuisine)}`, {
+              defaultValue: cuisine,
+            })}
             sx={{
               backgroundColor: colors?.bg ?? 'var(--color-neutral-light)',
               color: colors?.text ?? 'var(--color-neutral-light-text)',
               fontWeight: 600,
               fontSize: isMobile ? '0.7rem' : '1rem',
               height: 'auto',
-              '& .MuiChip-label': { padding: isMobile ? '3px 10px' : '5px 20px' },
-              '& .MuiChip-icon': { color: 'inherit', marginLeft: '4px', marginRight: '-8px' },
+              '& .MuiChip-label': {
+                padding: isMobile ? '3px 10px' : '5px 20px',
+              },
+              '& .MuiChip-icon': {
+                color: 'inherit',
+                marginLeft: '4px',
+                marginRight: '-8px',
+              },
             }}
           />
         );

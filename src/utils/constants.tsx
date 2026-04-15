@@ -121,12 +121,34 @@ export const LANGUAGES = [
   { code: 'es', label: 'Español' },
   { code: 'pt', label: 'Português' },
   { code: 'fr', label: 'Français' },
+  { code: 'de', label: 'Deutsch' },
+  { code: 'it', label: 'Italiano' },
+  { code: 'ja', label: '日本語' },
+  { code: 'zh', label: '中文' },
+  { code: 'ru', label: 'Русский' },
+  { code: 'nl', label: 'Nederlands' },
+  { code: 'sv', label: 'Svenska' },
+  { code: 'pl', label: 'Polski' },
+  { code: 'hu', label: 'Magyar' },
+  { code: 'ro', label: 'Română' },
+  { code: 'cs', label: 'Čeština' },
 ];
 
 export const LANGUAGE_NAMES: Record<string, string> = {
   es: 'Spanish',
   fr: 'French',
   pt: 'Portuguese',
+  de: 'German',
+  it: 'Italian',
+  ja: 'Japanese',
+  zh: 'Chinese',
+  ru: 'Russian',
+  nl: 'Dutch',
+  sv: 'Swedish',
+  pl: 'Polish',
+  hu: 'Hungarian',
+  ro: 'Romanian',
+  cs: 'Czech',
 };
 
 export 

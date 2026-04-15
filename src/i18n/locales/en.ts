@@ -39,7 +39,7 @@ export default {
       'Material UI 9 — cards, chips, switches, and other UI components',
       'React Router 7 — client-side routing',
       'Spoonacular API — recipe data source with built-in support for cuisines, diets, ingredients, and instructions',
-      'i18next — internationalization framework supporting EN, ES, PT, and FR',
+      'i18next — internationalization framework supporting 15 languages',
       'Groq API (llama-3.3-70b-versatile) — AI-powered live translation',
       'localStorage — client-side caching with 24h TTL to minimize API usage',
     ],

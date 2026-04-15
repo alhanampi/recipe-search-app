@@ -40,7 +40,7 @@ A recipe discovery web application that lets users browse popular picks, vegetar
 | [i18next-browser-languagedetector](https://github.com/i18next/i18next-browser-languageDetector) | Auto language detection |
 | [Groq API](https://groq.com/) (`llama-3.3-70b-versatile`) | AI-powered live translation of recipe content |
 
-Supported languages: **English**, **Spanish**, **Portuguese**, **French**
+Supported languages: **English**, **Spanish**, **Portuguese**, **French**, **German**, **Italian**, **Japanese**, **Chinese**, **Russian**, **Dutch**, **Swedish**, **Polish**, **Hungarian**, **Romanian**, **Czech**
 
 ### UI & Icons
 | Technology | Purpose |
@@ -58,7 +58,7 @@ Supported languages: **English**, **Spanish**, **Portuguese**, **French**
 - **Search** — keyword search with result count and pagination
 - **Recipe Detail Page** — full recipe view with hero image, ingredients (US/Metric toggle with images), step-by-step instructions, diet/cuisine tags, and source link
 - **Dark / Light mode** — custom animated MUI switch; state persisted in localStorage
-- **Language switcher** — EN / ES / PT / FR, auto-detected from browser; all UI strings via i18n locale files
+- **Language switcher** — 15 languages (EN, ES, PT, FR, DE, IT, JA, ZH, RU, NL, SV, PL, HU, RO, CS), auto-detected from browser; all UI strings via i18n locale files
 - **AI Translation** — Groq AI translates recipe titles, summaries, ingredients, and instructions when a non-English language is selected; results cached per recipe+language to minimize API usage
 - **Client-side caching** — Spoonacular responses cached per-cuisine, per-query, per-language; session cache preserves accumulated paginated results across navigation
 - **US / Metric toggle** — ingredient amounts switch between unit systems using Spoonacular's built-in measures data (no extra API call)
@@ -76,12 +76,13 @@ src/
 │   ├── CuisinePills/     # Localized cuisine tags
 │   ├── DietPills/        # Localized diet tags
 │   ├── Footer/
-│   ├── Header/           # AppBar with theme toggle and language selector
+│   ├── HamburgerMenu/    # Mobile overlay menu with search, theme toggle, language selector
+│   ├── Header/           # AppBar with theme toggle and language selector (desktop)
 │   ├── SearchBar/        # Search input with navigation
 │   ├── TopPicks/         # Splide carousel
 │   └── VeggiePicks/      # Card list (layout shared by CuisinePage and SearchPage)
 ├── context/              # ThemeContext
-├── i18n/                 # Locale files (en, es, pt, fr)
+├── i18n/                 # Locale files (15 languages: en, es, pt, fr, de, it, ja, zh, ru, nl, sv, pl, hu, ro, cs)
 ├── pages/
 │   ├── Home.tsx
 │   ├── CuisinePage.tsx   # /:cuisine
@@ -122,6 +123,6 @@ npm run dev
 - [x] AI translation via Groq
 - [x] US / Metric ingredient toggle
 - [ ] Favorites / saved recipes
-- [ ] More languages
+- [x] More languages
 - [ ] Unit and integration tests
 - [x] Responsive / mobile layout
