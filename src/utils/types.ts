@@ -26,3 +26,7 @@ export interface RecipeTranslation {
 export interface DietPillsProps extends RecipeProps {
   compact?: boolean;
 }
+
+export interface CuisinePillsProps extends RecipeProps {
+  overlay?: boolean;
+}

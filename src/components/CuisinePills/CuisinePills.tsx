@@ -2,15 +2,11 @@ import Chip from '@mui/material/Chip';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTranslation } from 'react-i18next';
 import { CUISINE_COLORS, CUISINE_ICONS } from '../../utils/constants';
-import type { RecipeProps } from '../../utils/types';
+import type { CuisinePillsProps } from '../../utils/types';
 import { IconWrapper, PillsWrapper } from './CuisinePills.styled';
 
 const toCamelKey = (s: string) =>
   s.toLowerCase().replace(/ ([a-z])/g, (_, c) => c.toUpperCase());
-
-interface CuisinePillsProps extends RecipeProps {
-  overlay?: boolean;
-}
 
 const CuisinePills = ({ recipe, overlay = true }: CuisinePillsProps) => {
   const { t } = useTranslation();
