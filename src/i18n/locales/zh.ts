@@ -153,4 +153,13 @@ export default {
     can: '罐',
     cans: '罐',
   },
+  favs: {
+    title: '我的收藏',
+    empty: '还没有保存的食谱。',
+    link: '收藏',
+    removeTitle: '从收藏中删除？',
+    removeText: '确定要从收藏中删除这个食谱吗？',
+    removeConfirm: '删除',
+    removeCancel: '取消',
+  },
 };

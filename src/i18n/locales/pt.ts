@@ -153,4 +153,13 @@ export default {
     can: 'lata',
     cans: 'latas',
   },
+  favs: {
+    title: 'Meus Favoritos',
+    empty: 'Nenhuma receita salva ainda.',
+    link: 'Favoritos',
+    removeTitle: 'Remover dos favoritos?',
+    removeText: 'Deseja remover esta receita dos seus favoritos?',
+    removeConfirm: 'Remover',
+    removeCancel: 'Cancelar',
+  },
 };

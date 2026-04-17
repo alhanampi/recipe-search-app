@@ -35,3 +35,26 @@ export const Controls = styled.div`
     display: none;
   }
 `;
+
+export const FavsLink = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--color-neutral-border);
+  border-radius: 2rem;
+  transition: background-color 0.15s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: var(--color-card-bg);
+  }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;

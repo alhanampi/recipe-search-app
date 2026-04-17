@@ -153,4 +153,13 @@ export default {
     can: 'doboz',
     cans: 'doboz',
   },
+  favs: {
+    title: 'Kedvenceim',
+    empty: 'Még nincs mentett recept.',
+    link: 'Kedvencek',
+    removeTitle: 'Eltávolítás a kedvencekből?',
+    removeText: 'El szeretnéd távolítani ezt a receptet a kedvenceidből?',
+    removeConfirm: 'Eltávolítás',
+    removeCancel: 'Mégse',
+  },
 };

@@ -153,4 +153,13 @@ export default {
     can: 'Dose',
     cans: 'Dosen',
   },
+  favs: {
+    title: 'Meine Favoriten',
+    empty: 'Noch keine gespeicherten Rezepte.',
+    link: 'Favoriten',
+    removeTitle: 'Aus Favoriten entfernen?',
+    removeText: 'Möchtest du dieses Rezept aus deinen Favoriten entfernen?',
+    removeConfirm: 'Entfernen',
+    removeCancel: 'Abbrechen',
+  },
 };

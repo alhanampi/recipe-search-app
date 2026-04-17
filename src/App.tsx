@@ -2,9 +2,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Toolbar from '@mui/material/Toolbar';
 import GlobalStyles from './GlobalStyles';
 import { ThemeProvider } from './context/ThemeContext';
+import { FavoritesProvider } from './context/FavoritesContext';
 import Home from './pages/Home/Home';
 import CuisinePage from './pages/CuisinePage/CuisinePage';
 import SearchPage from './pages/SearchPage/SearchPage';
+import FavsPage from './pages/FavsPage/FavsPage';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import RecipePage from './pages/RecipePage/RecipePage';
@@ -23,49 +25,59 @@ const App = () => {
   return (
     <BrowserRouter>
       <ThemeProvider>
-        <GlobalStyles />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout>
-                <Home />
-              </Layout>
-            }
-          />
-          <Route
-            path="/search/:query"
-            element={
-              <Layout>
-                <SearchPage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/recipe/:id"
-            element={
-              <Layout>
-                <RecipePage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <Layout>
-                <AboutPage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/:cuisine"
-            element={
-              <Layout>
-                <CuisinePage />
-              </Layout>
-            }
-          />
-        </Routes>
+        <FavoritesProvider>
+          <GlobalStyles />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Layout>
+                  <Home />
+                </Layout>
+              }
+            />
+            <Route
+              path="/search/:query"
+              element={
+                <Layout>
+                  <SearchPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/recipe/:id"
+              element={
+                <Layout>
+                  <RecipePage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <Layout>
+                  <AboutPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/favs"
+              element={
+                <Layout>
+                  <FavsPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/:cuisine"
+              element={
+                <Layout>
+                  <CuisinePage />
+                </Layout>
+              }
+            />
+          </Routes>
+        </FavoritesProvider>
       </ThemeProvider>
     </BrowserRouter>
   );

@@ -153,4 +153,13 @@ export default {
     can: 'puszka',
     cans: 'puszki',
   },
+  favs: {
+    title: 'Moje Ulubione',
+    empty: 'Brak zapisanych przepisów.',
+    link: 'Ulubione',
+    removeTitle: 'Usunąć z ulubionych?',
+    removeText: 'Czy chcesz usunąć ten przepis z ulubionych?',
+    removeConfirm: 'Usuń',
+    removeCancel: 'Anuluj',
+  },
 };

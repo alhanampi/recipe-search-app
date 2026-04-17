@@ -4,9 +4,10 @@ import Select from '@mui/material/Select';
 import type { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useTranslation } from 'react-i18next';
+import { FaHeart } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
 import logo from '../../assets/11401354.png';
-import { Controls, Logo, LogoWrapper, SiteTitle } from './Header.styled';
+import { Controls, FavsLink, Logo, LogoWrapper, SiteTitle } from './Header.styled';
 import { ThemeSwitch } from '../AppSwitch/AppSwitch';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import { LANGUAGES } from '../../utils/constants';
@@ -38,6 +39,10 @@ const Header = () => {
           </LogoWrapper>
 
           <Controls>
+            <FavsLink href="/favs">
+              <FaHeart />
+              {t('favs.link')}
+            </FavsLink>
             <ThemeSwitch checked={mode === 'dark'} onChange={toggle} />
             <Select
               value={i18n.resolvedLanguage ?? 'en'}

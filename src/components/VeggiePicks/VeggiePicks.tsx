@@ -24,6 +24,7 @@ import {
 } from './VeggiePicks.styled';
 import DietPills from '../DietPills/DietPills';
 import CuisinePills from '../CuisinePills/CuisinePills';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 
 const VeggiePicks = () => {
   const { t, i18n } = useTranslation();
@@ -93,6 +94,7 @@ const VeggiePicks = () => {
                   <CuisinePillsOverlay>
                     <CuisinePills recipe={recipe} />
                   </CuisinePillsOverlay>
+                  <FavoriteButton recipe={recipe} variant="overlay" />
                 </CardImageWrapper>
                 <CardBody>
                   <DesktopTitle>

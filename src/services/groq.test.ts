@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { translateRecipe, translateCards } from './groq';
 import { CACHE_TTL } from './api';
+import { mockCards } from '../test/mocks/fixtures';
 
 vi.mock('axios');
 const mockedAxios = vi.mocked(axios);
@@ -86,10 +87,7 @@ describe('translateRecipe', () => {
 
 describe('translateCards', () => {
   const language = 'fr';
-  const cards = [
-    { id: 1, title: 'Pasta', summary: 'A simple dish' },
-    { id: 2, title: 'Pizza', summary: 'A classic' },
-  ];
+  const cards = mockCards;
 
   it('returns all cards from cache without calling axios when all are cached', async () => {
     for (const card of cards) {

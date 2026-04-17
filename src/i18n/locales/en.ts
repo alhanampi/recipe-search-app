@@ -116,4 +116,13 @@ export default {
     results: '{{count}} results found',
     noResults: 'No recipes found.',
   },
+  favs: {
+    title: 'My Favorites',
+    empty: 'No saved recipes yet.',
+    link: 'Favorites',
+    removeTitle: 'Remove from favorites?',
+    removeText: 'Do you want to remove this recipe from your favorites?',
+    removeConfirm: 'Remove',
+    removeCancel: 'Cancel',
+  },
 };

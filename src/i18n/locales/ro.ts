@@ -153,4 +153,13 @@ export default {
     can: 'conservă',
     cans: 'conserve',
   },
+  favs: {
+    title: 'Favoritele Mele',
+    empty: 'Nicio rețetă salvată încă.',
+    link: 'Favorite',
+    removeTitle: 'Eliminați din favorite?',
+    removeText: 'Doriți să eliminați această rețetă din favorite?',
+    removeConfirm: 'Elimină',
+    removeCancel: 'Anulează',
+  },
 };

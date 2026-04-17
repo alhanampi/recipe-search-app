@@ -33,6 +33,7 @@ import {
 } from './RecipePage.styled';
 import { translateRecipe } from '../../services/groq';
 import Typography from '@mui/material/Typography';
+import FavoriteButton from '../../components/FavoriteButton/FavoriteButton';
 
 const UNIT_KEY_MAP: Record<string, string> = {
   tsp: 'tsp', tsps: 'tsps',
@@ -148,6 +149,7 @@ const RecipePage = () => {
         <Typography variant="h2" sx={{ fontSize: '1.8rem' }}>
           {title}
         </Typography>
+        <FavoriteButton recipe={recipe} variant="inline" />
         <CuisinePills recipe={recipe} overlay={false} />
       </TitleRow>
 

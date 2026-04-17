@@ -153,4 +153,13 @@ export default {
     can: 'blik',
     cans: 'blikken',
   },
+  favs: {
+    title: 'Mijn Favorieten',
+    empty: 'Nog geen opgeslagen recepten.',
+    link: 'Favorieten',
+    removeTitle: 'Verwijderen uit favorieten?',
+    removeText: 'Wil je dit recept uit je favorieten verwijderen?',
+    removeConfirm: 'Verwijderen',
+    removeCancel: 'Annuleren',
+  },
 };

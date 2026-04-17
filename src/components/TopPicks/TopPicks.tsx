@@ -24,6 +24,7 @@ import {
 } from './TopPicks.styled';
 import DietPills from '../DietPills/DietPills';
 import CuisinePills from '../CuisinePills/CuisinePills';
+import FavoriteButton from '../FavoriteButton/FavoriteButton';
 
 const TopPicks = () => {
   const { t, i18n } = useTranslation();
@@ -99,6 +100,7 @@ const TopPicks = () => {
                   <CuisineOverlay>
                     <CuisinePills recipe={recipe} />
                   </CuisineOverlay>
+                  <FavoriteButton recipe={recipe} variant="overlay" />
                 </ImageWrapper>
                 <StyledCardContent>
                   <ClockRow>

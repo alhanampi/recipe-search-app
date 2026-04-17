@@ -153,4 +153,13 @@ export default {
     can: 'konzerva',
     cans: 'konzervy',
   },
+  favs: {
+    title: 'Moje Oblíbené',
+    empty: 'Zatím žádné uložené recepty.',
+    link: 'Oblíbené',
+    removeTitle: 'Odebrat z oblíbených?',
+    removeText: 'Chcete odebrat tento recept z oblíbených?',
+    removeConfirm: 'Odebrat',
+    removeCancel: 'Zrušit',
+  },
 };

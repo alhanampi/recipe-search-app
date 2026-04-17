@@ -116,6 +116,15 @@ export default {
     results: '{{count}} resultados encontrados',
     noResults: 'No se encontraron recetas.',
   },
+  favs: {
+    title: 'Mis Favoritas',
+    empty: 'Todavía no guardaste ninguna receta.',
+    link: 'Favoritas',
+    removeTitle: '¿Quitar de favoritas?',
+    removeText: '¿Querés quitar esta receta de tus favoritas?',
+    removeConfirm: 'Quitar',
+    removeCancel: 'Cancelar',
+  },
   units: {
     tsp: 'cdta.',
     tsps: 'cdtas.',

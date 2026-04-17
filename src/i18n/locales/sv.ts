@@ -153,4 +153,13 @@ export default {
     can: 'burk',
     cans: 'burkar',
   },
+  favs: {
+    title: 'Mina Favoriter',
+    empty: 'Inga sparade recept än.',
+    link: 'Favoriter',
+    removeTitle: 'Ta bort från favoriter?',
+    removeText: 'Vill du ta bort det här receptet från dina favoriter?',
+    removeConfirm: 'Ta bort',
+    removeCancel: 'Avbryt',
+  },
 };

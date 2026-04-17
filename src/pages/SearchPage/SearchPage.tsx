@@ -13,6 +13,7 @@ import { translateCards, type CardTranslation } from '../../services/groq';
 import noPreview from '../../assets/nopreview.png';
 import DietPills from '../../components/DietPills/DietPills';
 import CuisinePills from '../../components/CuisinePills/CuisinePills';
+import FavoriteButton from '../../components/FavoriteButton/FavoriteButton';
 import {
   CardBody,
   CardImageWrapper,
@@ -183,6 +184,7 @@ const SearchPage = () => {
                       <CuisinePillsOverlay>
                         <CuisinePills recipe={recipe} />
                       </CuisinePillsOverlay>
+                      <FavoriteButton recipe={recipe} variant="overlay" />
                     </CardImageWrapper>
                     <CardBody>
                       <DesktopTitle>

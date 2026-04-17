@@ -153,4 +153,13 @@ export default {
     can: 'boîte',
     cans: 'boîtes',
   },
+  favs: {
+    title: 'Mes Favoris',
+    empty: 'Aucune recette sauvegardée.',
+    link: 'Favoris',
+    removeTitle: 'Retirer des favoris ?',
+    removeText: 'Voulez-vous retirer cette recette de vos favoris ?',
+    removeConfirm: 'Retirer',
+    removeCancel: 'Annuler',
+  },
 };

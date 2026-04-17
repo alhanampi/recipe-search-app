@@ -1,24 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import DietPills from './DietPills';
+import { mockRecipe as baseRecipe } from '../../test/mocks/fixtures';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
     t: (key: string) => key,
   }),
 }));
-
-const baseRecipe = {
-  vegetarian: false,
-  vegan: false,
-  glutenFree: false,
-  dairyFree: false,
-  ketogenic: false,
-  paleo: false,
-  primal: false,
-  pescetarian: false,
-  lowFodmap: false,
-  whole30: false,
-};
 
 describe('DietPills', () => {
   it('renders no pills when no diets are active', () => {

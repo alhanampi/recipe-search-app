@@ -3,7 +3,7 @@ import Select from '@mui/material/Select';
 import type { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useTranslation } from 'react-i18next';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHeart } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
 import logo from '../../assets/11401354.png';
 import { Logo, LogoWrapper, SiteTitle } from '../Header/Header.styled';
@@ -13,6 +13,7 @@ import { LANGUAGES } from '../../utils/constants';
 import {
   AboutLink,
   CloseButton,
+  FavsMenuLink,
   MenuButton,
   ModeLabel,
   Overlay,
@@ -38,7 +39,7 @@ const HamburgerMenu = () => {
         {open ? <FaTimes /> : <FaBars />}
       </MenuButton>
 
-      <Overlay $open={open}>
+      <Overlay $open={open} aria-hidden={!open}>
         <OverlayHeader>
           <LogoWrapper href="/" onClick={close}>
             <Logo src={logo} alt="logo" />
@@ -48,6 +49,13 @@ const HamburgerMenu = () => {
             <FaTimes />
           </CloseButton>
         </OverlayHeader>
+
+        <Section>
+          <FavsMenuLink href="/favs" onClick={close}>
+            <FaHeart />
+            {t('favs.link')}
+          </FavsMenuLink>
+        </Section>
 
         <Section>
           <Row>

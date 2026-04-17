@@ -153,4 +153,13 @@ export default {
     can: '缶',
     cans: '缶',
   },
+  favs: {
+    title: 'お気に入り',
+    empty: '保存されたレシピはありません。',
+    link: 'お気に入り',
+    removeTitle: 'お気に入りから削除しますか？',
+    removeText: 'このレシピをお気に入りから削除しますか？',
+    removeConfirm: '削除',
+    removeCancel: 'キャンセル',
+  },
 };

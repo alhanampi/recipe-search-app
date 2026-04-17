@@ -122,7 +122,8 @@ npm run dev
 - [x] Search by ingredient or name
 - [x] AI translation via Groq
 - [x] US / Metric ingredient toggle
-- [ ] Favorites / saved recipes
+- [ ] Nutritional analysis
+- [x] Favorites / saved recipes
 - [x] More languages
 - [ ] Unit and integration tests
 - [x] Responsive / mobile layout

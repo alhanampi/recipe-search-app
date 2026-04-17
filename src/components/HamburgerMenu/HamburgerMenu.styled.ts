@@ -79,3 +79,17 @@ export const AboutLink = styled.a`
     color: var(--color-text-primary);
   }
 `;
+
+export const FavsMenuLink = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Carattere', cursive;
+  font-size: 1.6rem;
+  color: var(--color-text-secondary, var(--color-text-muted));
+  text-decoration: none;
+
+  &:hover {
+    color: #ef4444;
+  }
+`;

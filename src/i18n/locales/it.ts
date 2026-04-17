@@ -153,4 +153,13 @@ export default {
     can: 'lattina',
     cans: 'lattine',
   },
+  favs: {
+    title: 'I Miei Preferiti',
+    empty: 'Nessuna ricetta salvata.',
+    link: 'Preferiti',
+    removeTitle: 'Rimuovere dai preferiti?',
+    removeText: 'Vuoi rimuovere questa ricetta dai tuoi preferiti?',
+    removeConfirm: 'Rimuovi',
+    removeCancel: 'Annulla',
+  },
 };
