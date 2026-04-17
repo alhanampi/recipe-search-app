@@ -39,7 +39,7 @@ describe('translateRecipe', () => {
     const result = await translateRecipe(recipeId, payload, language);
 
     expect(mockedAxios.post).not.toHaveBeenCalled();
-    expect(result.summary).toBe('Un plato sencillo');
+    expect(result?.summary).toBe('Un plato sencillo');
   });
 
   it('calls axios and returns translated data on cache miss', async () => {
@@ -50,7 +50,7 @@ describe('translateRecipe', () => {
     const result = await translateRecipe(recipeId, payload, language);
 
     expect(mockedAxios.post).toHaveBeenCalledTimes(1);
-    expect(result.summary).toBe('Un plato sencillo');
+    expect(result?.summary).toBe('Un plato sencillo');
   });
 
   it('stores the result in localStorage after fetching', async () => {

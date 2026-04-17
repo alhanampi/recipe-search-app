@@ -12,7 +12,7 @@ export const translateRecipe = async (
   recipeId: number,
   payload: RecipeTranslation,
   language: string
-): Promise<RecipeTranslation> => {
+): Promise<RecipeTranslation | null> => {
   const cacheKey = `groq_recipe_${recipeId}_${language}`;
   const cached = localStorage.getItem(cacheKey);
   if (cached) {

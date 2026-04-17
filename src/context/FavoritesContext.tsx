@@ -11,7 +11,11 @@ interface FavoritesContextValue {
 
 const FavoritesContext = createContext<FavoritesContextValue | null>(null);
 
-export const FavoritesProvider = ({ children }: { children: React.ReactNode }) => {
+export const FavoritesProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [favorites, setFavorites] = useState<any[]>(() => {
     try {
       return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
@@ -27,7 +31,9 @@ export const FavoritesProvider = ({ children }: { children: React.ReactNode }) =
   const isFavorite = (id: number) => favorites.some((r) => r.id === id);
 
   const addFavorite = (recipe: any) => {
-    setFavorites((prev) => (prev.some((r) => r.id === recipe.id) ? prev : [...prev, recipe]));
+    setFavorites((prev) =>
+      prev.some((r) => r.id === recipe.id) ? prev : [...prev, recipe]
+    );
   };
 
   const removeFavorite = (id: number) => {
@@ -35,7 +41,9 @@ export const FavoritesProvider = ({ children }: { children: React.ReactNode }) =
   };
 
   return (
-    <FavoritesContext.Provider value={{ favorites, isFavorite, addFavorite, removeFavorite }}>
+    <FavoritesContext.Provider
+      value={{ favorites, isFavorite, addFavorite, removeFavorite }}
+    >
       {children}
     </FavoritesContext.Provider>
   );
@@ -43,6 +51,7 @@ export const FavoritesProvider = ({ children }: { children: React.ReactNode }) =
 
 export const useFavorites = () => {
   const ctx = useContext(FavoritesContext);
-  if (!ctx) throw new Error('useFavorites must be used within FavoritesProvider');
+  if (!ctx)
+    throw new Error('useFavorites must be used within FavoritesProvider');
   return ctx;
 };
