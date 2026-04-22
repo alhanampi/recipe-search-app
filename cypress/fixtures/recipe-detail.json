@@ -1,0 +1,42 @@
+{
+  "id": 1,
+  "title": "pasta carbonara",
+  "image": "https://img.spoonacular.com/recipes/1-556x370.jpg",
+  "readyInMinutes": 30,
+  "servings": 4,
+  "summary": "A classic Italian pasta dish made with eggs, cheese and guanciale.",
+  "cuisines": ["Italian"],
+  "vegetarian": false,
+  "vegan": false,
+  "glutenFree": false,
+  "dairyFree": false,
+  "ketogenic": false,
+  "paleo": false,
+  "primal": false,
+  "pescetarian": false,
+  "lowFodmap": false,
+  "whole30": false,
+  "extendedIngredients": [
+    {
+      "id": 20420,
+      "name": "pasta",
+      "original": "200g pasta",
+      "image": "fusilli.jpg",
+      "measures": {
+        "us": { "amount": 7.05, "unitShort": "oz" },
+        "metric": { "amount": 200, "unitShort": "g" }
+      }
+    }
+  ],
+  "analyzedInstructions": [
+    {
+      "steps": [
+        { "number": 1, "step": "Boil salted water and cook the pasta until al dente." },
+        { "number": 2, "step": "Whisk eggs with grated pecorino and black pepper." },
+        { "number": 3, "step": "Combine everything off the heat to avoid scrambling the eggs." }
+      ]
+    }
+  ],
+  "sourceUrl": "https://example.com/carbonara",
+  "sourceName": "example.com"
+}

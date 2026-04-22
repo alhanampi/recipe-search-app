@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "pasta carbonara",
+    "image": "https://img.spoonacular.com/recipes/1-312x231.jpg",
+    "readyInMinutes": 30,
+    "summary": "A classic Italian pasta dish.",
+    "cuisines": ["Italian"],
+    "vegetarian": false,
+    "vegan": false,
+    "glutenFree": false,
+    "dairyFree": false,
+    "ketogenic": false,
+    "paleo": false,
+    "primal": false,
+    "pescetarian": false,
+    "lowFodmap": false,
+    "whole30": false
+  },
+  {
+    "id": 2,
+    "title": "chicken tikka masala",
+    "image": "https://img.spoonacular.com/recipes/2-312x231.jpg",
+    "readyInMinutes": 45,
+    "summary": "A popular Indian-inspired dish.",
+    "cuisines": ["Indian"],
+    "vegetarian": false,
+    "vegan": false,
+    "glutenFree": true,
+    "dairyFree": false,
+    "ketogenic": false,
+    "paleo": false,
+    "primal": false,
+    "pescetarian": false,
+    "lowFodmap": false,
+    "whole30": false
+  }
+]

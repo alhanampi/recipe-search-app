@@ -1,0 +1,23 @@
+{
+  "results": [
+    {
+      "id": 10,
+      "title": "spaghetti bolognese",
+      "image": "https://img.spoonacular.com/recipes/10-312x231.jpg",
+      "readyInMinutes": 60,
+      "summary": "A hearty Italian meat sauce pasta.",
+      "cuisines": ["Italian"],
+      "vegetarian": false,
+      "vegan": false,
+      "glutenFree": false,
+      "dairyFree": false,
+      "ketogenic": false,
+      "paleo": false,
+      "primal": false,
+      "pescetarian": false,
+      "lowFodmap": false,
+      "whole30": false
+    }
+  ],
+  "totalResults": 1
+}
