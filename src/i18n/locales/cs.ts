@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'O Dishcovery',
     intro:
-      'Dishcovery je osobní projekt vytvořený pro procvičování moderních vzorců vývoje frontendu. Umožňuje procházet oblíbené recepty, zkoumat vegetariánské možnosti, vyhledávat podle klíčových slov, filtrovat podle kuchyně a prohlížet úplné detaily receptů — vše ve vašem jazyce.',
+      'Dishcovery je osobní projekt vytvořený pro procvičování moderních vzorců vývoje frontendu. Umožňuje procházet oblíbené recepty, zkoumat vegetariánské možnosti, vyhledávat podle klíčových slov, filtrovat podle kuchyně, ukládat oblíbené recepty a prohlížet úplné detaily — včetně nutričních informací a voliče porcí — vše ve vašem jazyce.',
     stackTitle: 'Technologický stack',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — základní framework',
@@ -42,15 +42,17 @@ export default {
       'i18next — framework pro internacionalizaci s podporou 15 jazyků',
       'Groq API (llama-3.3-70b-versatile) — živý překlad pomocí AI',
       'localStorage — ukládání do mezipaměti na straně klienta s TTL 24 hodin pro minimalizaci využití API',
+      'Vitest + Testing Library — jednotkové a integrační testy',
+      'Cypress — end-to-end testy',
     ],
     structureTitle: 'Struktura projektu',
     structureItems: [
-      'components/ — znovupoužitelné UI prvky: karty, pilulky, vyhledávací lišta, mřížka kategorií, karusel',
-      'pages/ — kompletní pohledy: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'components/ — znovupoužitelné UI prvky: karty, pilulky, vyhledávací lišta, mřížka kategorií, karusel, tlačítko oblíbených, nutriční graf',
+      'pages/ — kompletní pohledy: Home, CuisinePage, SearchPage, RecipePage, FavsPage, AboutPage',
       'services/ — všechna volání API a logika ukládání do mezipaměti, oddělené podle domény',
       'i18n/ — lokalizační soubory pro každý podporovaný jazyk',
       'utils/ — sdílené konstanty (ikony, barvy) a TypeScript rozhraní',
-      'context/ — ThemeContext pro světlý/tmavý režim',
+      'context/ — ThemeContext pro světlý/tmavý režim a FavoritesContext pro uložené recepty',
     ],
     translationTitle: 'AI překlad s Groq',
     translationText:
@@ -109,6 +111,8 @@ export default {
     servings: 'porcí',
     unitUs: 'US',
     unitMetric: 'Metrické',
+    nutritionTitle: 'Nutriční hodnoty',
+    perServing: '% denní potřeby · {{count}} porce',
   },
   search: {
     placeholder: 'Hledat recepty...',

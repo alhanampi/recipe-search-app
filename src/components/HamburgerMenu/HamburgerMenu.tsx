@@ -3,7 +3,7 @@ import Select from '@mui/material/Select';
 import type { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useTranslation } from 'react-i18next';
-import { FaBars, FaTimes, FaHeart } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHeart, FaInfoCircle } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
 import logo from '../../assets/11401354.png';
 import { Logo, LogoWrapper, SiteTitle } from '../Header/Header.styled';
@@ -11,15 +11,15 @@ import { ThemeSwitch } from '../AppSwitch/AppSwitch';
 import SearchBar from '../SearchBar/SearchBar';
 import { LANGUAGES } from '../../utils/constants';
 import {
-  AboutLink,
   CloseButton,
-  FavsMenuLink,
+  ControlLabel,
+  ControlRow,
+  FavsNavLink,
   MenuButton,
-  ModeLabel,
+  NavLink,
   Overlay,
   OverlayHeader,
-  Row,
-  Section,
+  SearchSection,
 } from './HamburgerMenu.styled';
 
 const HamburgerMenu = () => {
@@ -50,27 +50,29 @@ const HamburgerMenu = () => {
           </CloseButton>
         </OverlayHeader>
 
-        <Section>
-          <FavsMenuLink href="/favs" onClick={close}>
-            <FaHeart />
-            {t('favs.link')}
-          </FavsMenuLink>
-        </Section>
-
-        <Section>
-          <Row>
-            <ThemeSwitch checked={mode === 'dark'} onChange={toggle} />
-            <ModeLabel>
-              {mode === 'dark' ? t('header.dark') : t('header.light')}
-            </ModeLabel>
-          </Row>
-        </Section>
-
-        <Section>
+        <SearchSection>
           <SearchBar onSubmit={close} compact />
-        </Section>
+        </SearchSection>
 
-        <Section>
+        <FavsNavLink href="/favs" onClick={close}>
+          <FaHeart />
+          {t('favs.link')}
+        </FavsNavLink>
+
+        <NavLink href="/about" onClick={close}>
+          <FaInfoCircle />
+          {t('footer.about')}
+        </NavLink>
+
+        <ControlRow>
+          <ControlLabel>
+            {mode === 'dark' ? t('header.dark') : t('header.light')}
+          </ControlLabel>
+          <ThemeSwitch checked={mode === 'dark'} onChange={toggle} />
+        </ControlRow>
+
+        <ControlRow>
+          <ControlLabel>{t('header.language')}</ControlLabel>
           <Select
             value={i18n.resolvedLanguage ?? 'en'}
             onChange={handleChange}
@@ -87,8 +89,9 @@ const HamburgerMenu = () => {
               },
             }}
             sx={{
-              width: '100%',
+              minWidth: 130,
               color: 'var(--color-text-primary)',
+              fontFamily: "'Red Hat Display', sans-serif",
               '& .MuiOutlinedInput-notchedOutline': {
                 borderColor: 'var(--color-neutral-border)',
               },
@@ -101,13 +104,7 @@ const HamburgerMenu = () => {
               </MenuItem>
             ))}
           </Select>
-        </Section>
-
-        <Section>
-          <AboutLink href="/about" onClick={close}>
-            {t('footer.about')}
-          </AboutLink>
-        </Section>
+        </ControlRow>
       </Overlay>
     </>
   );

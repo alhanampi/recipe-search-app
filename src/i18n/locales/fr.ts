@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'À propos de Dishcovery',
     intro:
-      "Dishcovery est un projet personnel conçu pour pratiquer les patterns modernes de développement frontend. Il permet de parcourir des recettes populaires, des options végétariennes, de rechercher par mot-clé, de filtrer par cuisine et d'accéder aux détails complets de chaque recette, dans votre langue.",
+      "Dishcovery est un projet personnel conçu pour pratiquer les patterns modernes de développement frontend. Il permet de parcourir des recettes populaires, des options végétariennes, de rechercher par mot-clé, de filtrer par cuisine, de sauvegarder des recettes favorites et d'accéder aux détails complets — incluant les informations nutritionnelles et un sélecteur de portions —, dans votre langue.",
     stackTitle: 'Stack technique',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — framework principal',
@@ -46,11 +46,11 @@ export default {
     structureTitle: 'Structure du projet',
     structureItems: [
       "components/ — éléments d'interface réutilisables : cartes, pills, barre de recherche, grille de catégories, carrousel",
-      'pages/ — vues complètes : Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'pages/ — vues complètes : Home, CuisinePage, SearchPage, RecipePage, FavsPage, AboutPage',
       'services/ — tous les appels API et la logique de cache, séparés par domaine',
       'i18n/ — fichiers de locale pour chaque langue supportée',
       'utils/ — constantes partagées (icônes, couleurs) et interfaces TypeScript',
-      'context/ — ThemeContext pour le mode clair/sombre',
+      'context/ — ThemeContext pour le mode clair/sombre et FavoritesContext pour les recettes sauvegardées',
     ],
     translationTitle: 'Traduction automatique avec Groq',
     translationText:
@@ -109,6 +109,8 @@ export default {
     servings: 'portions',
     unitUs: 'Impérial',
     unitMetric: 'Métrique',
+    nutritionTitle: 'Nutrition',
+    perServing: '% des apports journaliers · {{count}} portion(s)',
   },
   search: {
     placeholder: 'Rechercher des recettes...',

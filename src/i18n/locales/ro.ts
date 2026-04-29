@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'Despre Dishcovery',
     intro:
-      'Dishcovery este un proiect personal creat pentru a practica modele moderne de dezvoltare frontend. Îți permite să răsfoiești rețete populare, să explorezi opțiuni vegetariene, să cauți după cuvinte cheie, să filtrezi după bucătărie și să accesezi detalii complete ale rețetelor — totul în limba ta.',
+      'Dishcovery este un proiect personal creat pentru a practica modele moderne de dezvoltare frontend. Îți permite să răsfoiești rețete populare, să explorezi opțiuni vegetariene, să cauți după cuvinte cheie, să filtrezi după bucătărie, să salvezi rețete favorite și să accesezi detalii complete — inclusiv informații nutriționale și selector de porții — totul în limba ta.',
     stackTitle: 'Stack tehnologic',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — framework principal',
@@ -42,15 +42,17 @@ export default {
       'i18next — framework de internaționalizare cu suport pentru 15 limbi',
       'Groq API (llama-3.3-70b-versatile) — traducere live cu AI',
       'localStorage — cache pe partea clientului cu TTL de 24h pentru a minimiza utilizarea API',
+      'Vitest + Testing Library — teste unitare și de integrare',
+      'Cypress — teste end-to-end',
     ],
     structureTitle: 'Structura proiectului',
     structureItems: [
-      'components/ — elemente UI reutilizabile: carduri, pilule, bara de căutare, grilă de categorii, carusel',
-      'pages/ — vizualizări complete: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'components/ — elemente UI reutilizabile: carduri, pilule, bara de căutare, grilă de categorii, carusel, buton de favorite, grafic nutrițional',
+      'pages/ — vizualizări complete: Home, CuisinePage, SearchPage, RecipePage, FavsPage, AboutPage',
       'services/ — toate apelurile API și logica de cache, separate pe domenii',
       'i18n/ — fișiere de localizare pentru fiecare limbă acceptată',
       'utils/ — constante partajate (pictograme, culori) și interfețe TypeScript',
-      'context/ — ThemeContext pentru modul luminos/întunecat',
+      'context/ — ThemeContext pentru modul luminos/întunecat și FavoritesContext pentru rețetele salvate',
     ],
     translationTitle: 'Traducere AI cu Groq',
     translationText:
@@ -109,6 +111,8 @@ export default {
     servings: 'porții',
     unitUs: 'SUA',
     unitMetric: 'Metric',
+    nutritionTitle: 'Valori nutriționale',
+    perServing: '% din necesarul zilnic · {{count}} porție(ii)',
   },
   search: {
     placeholder: 'Caută rețete...',

@@ -1,44 +1,44 @@
-import { complexSearch } from './api';
+import { randomRecipes } from './api';
 import { getVeggie } from './veggiePicks';
 
 vi.mock('./api', () => ({
-  complexSearch: vi.fn(),
+  randomRecipes: vi.fn(),
 }));
 
-const mockedComplexSearch = vi.mocked(complexSearch);
+const mockedRandomRecipes = vi.mocked(randomRecipes);
 
 beforeEach(() => {
   vi.clearAllMocks();
 });
 
 describe('getVeggie', () => {
-  it('calls complexSearch with the correct parameters', async () => {
-    mockedComplexSearch.mockResolvedValue({ recipes: [], totalResults: 0 });
+  it('calls randomRecipes with vegetarian tag and number 4', async () => {
+    mockedRandomRecipes.mockResolvedValue([]);
 
     await getVeggie();
 
-    expect(mockedComplexSearch).toHaveBeenCalledWith(
-      { diet: 'vegetarian', number: 4 },
+    expect(mockedRandomRecipes).toHaveBeenCalledWith(
+      { number: 4, tags: 'vegetarian' },
       'veggie',
       'en'
     );
   });
 
-  it('passes language through to complexSearch', async () => {
-    mockedComplexSearch.mockResolvedValue({ recipes: [], totalResults: 0 });
+  it('passes language through to randomRecipes', async () => {
+    mockedRandomRecipes.mockResolvedValue([]);
 
     await getVeggie('it');
 
-    expect(mockedComplexSearch).toHaveBeenCalledWith(
+    expect(mockedRandomRecipes).toHaveBeenCalledWith(
       expect.any(Object),
       'veggie',
       'it'
     );
   });
 
-  it('returns the recipes array from the result', async () => {
+  it('returns the recipes array', async () => {
     const recipes = [{ id: 1, title: 'Salad' }];
-    mockedComplexSearch.mockResolvedValue({ recipes, totalResults: 1 });
+    mockedRandomRecipes.mockResolvedValue(recipes);
 
     const result = await getVeggie();
 

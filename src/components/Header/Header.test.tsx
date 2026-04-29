@@ -23,7 +23,7 @@ vi.mock('../HamburgerMenu/HamburgerMenu', () => ({
   default: () => null,
 }));
 
-vi.mock('../../assets/11401354.png', () => ({ default: '' }));
+vi.mock('../../assets/11401354.png', () => ({ default: 'logo.png' }));
 
 const renderHeader = () => render(<Header />);
 

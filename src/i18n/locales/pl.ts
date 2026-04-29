@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'O Dishcovery',
     intro:
-      'Dishcovery to projekt osobisty stworzony w celu ćwiczenia nowoczesnych wzorców programowania frontendowego. Pozwala przeglądać popularne przepisy, odkrywać opcje wegetariańskie, wyszukiwać według słów kluczowych, filtrować według kuchni i zapoznawać się z pełnymi szczegółami przepisów — wszystko w Twoim języku.',
+      'Dishcovery to projekt osobisty stworzony w celu ćwiczenia nowoczesnych wzorców programowania frontendowego. Pozwala przeglądać popularne przepisy, odkrywać opcje wegetariańskie, wyszukiwać według słów kluczowych, filtrować według kuchni, zapisywać ulubione przepisy i zapoznawać się z pełnymi szczegółami — w tym informacjami żywieniowymi i selektorem porcji — wszystko w Twoim języku.',
     stackTitle: 'Stack technologiczny',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — główny framework',
@@ -42,15 +42,17 @@ export default {
       'i18next — framework internacjonalizacji obsługujący 15 języków',
       'Groq API (llama-3.3-70b-versatile) — tłumaczenie na żywo wspomagane AI',
       'localStorage — buforowanie po stronie klienta z TTL 24h w celu minimalizacji użycia API',
+      'Vitest + Testing Library — testy jednostkowe i integracyjne',
+      'Cypress — testy end-to-end',
     ],
     structureTitle: 'Struktura projektu',
     structureItems: [
-      'components/ — wielokrotnego użytku elementy UI: karty, pigułki, pasek wyszukiwania, siatka kategorii, karuzela',
-      'pages/ — pełne widoki: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'components/ — wielokrotnego użytku elementy UI: karty, pigułki, pasek wyszukiwania, siatka kategorii, karuzela, przycisk ulubionych, wykres odżywczy',
+      'pages/ — pełne widoki: Home, CuisinePage, SearchPage, RecipePage, FavsPage, AboutPage',
       'services/ — wszystkie wywołania API i logika buforowania, oddzielone według domeny',
       'i18n/ — pliki lokalizacyjne dla każdego obsługiwanego języka',
       'utils/ — wspólne stałe (ikony, kolory) i interfejsy TypeScript',
-      'context/ — ThemeContext dla trybu jasnego/ciemnego',
+      'context/ — ThemeContext dla trybu jasnego/ciemnego i FavoritesContext dla zapisanych przepisów',
     ],
     translationTitle: 'Tłumaczenie AI z Groq',
     translationText:
@@ -109,6 +111,8 @@ export default {
     servings: 'porcji',
     unitUs: 'US',
     unitMetric: 'Metryczne',
+    nutritionTitle: 'Wartości odżywcze',
+    perServing: '% dziennego zapotrzebowania · {{count}} porcja(e)',
   },
   search: {
     placeholder: 'Szukaj przepisów...',

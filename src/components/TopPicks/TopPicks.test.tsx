@@ -15,7 +15,7 @@ vi.mock('../../services/groq', () => ({ translateCards: vi.fn() }));
 vi.mock('../DietPills/DietPills', () => ({ default: () => null }));
 vi.mock('../CuisinePills/CuisinePills', () => ({ default: () => null }));
 vi.mock('../FavoriteButton/FavoriteButton', () => ({ default: () => null }));
-vi.mock('../../assets/nopreview.png', () => ({ default: '' }));
+vi.mock('../../assets/nopreview.png', () => ({ default: 'nopreview.png' }));
 
 const mockGetPopular = vi.mocked(getPopular);
 const mockTranslateCards = vi.mocked(translateCards);

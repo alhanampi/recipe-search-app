@@ -158,12 +158,14 @@ const SearchPage = () => {
               return (
                 <MuiCard
                   key={recipe.id}
+                  onClick={() => navigate(`/recipe/${recipe.id}`)}
                   sx={{
                     display: 'flex',
                     flexDirection: 'column',
                     transition: 'transform 0.2s ease',
                     backgroundColor: 'var(--color-card-bg)',
                     borderRadius: '10px',
+                    cursor: 'pointer',
                     '&:hover': { transform: 'translateY(-4px)' },
                   }}
                 >

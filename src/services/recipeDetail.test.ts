@@ -16,7 +16,7 @@ describe('getRecipeById', () => {
 
   it('returns cached data without calling axios when cache is fresh', async () => {
     localStorage.setItem(
-      `recipe_${id}_en`,
+      `recipe_${id}_en_n`,
       JSON.stringify({ data: recipe, timestamp: Date.now() })
     );
 
@@ -35,18 +35,29 @@ describe('getRecipeById', () => {
     expect(result.title).toBe('Pasta Carbonara');
   });
 
+  it('requests nutrition data from the API', async () => {
+    mockedAxios.get.mockResolvedValue({ data: recipe });
+
+    await getRecipeById(id);
+
+    expect(mockedAxios.get).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.objectContaining({ params: expect.objectContaining({ includeNutrition: true }) })
+    );
+  });
+
   it('stores the result in localStorage after fetching', async () => {
     mockedAxios.get.mockResolvedValue({ data: recipe });
 
     await getRecipeById(id);
 
-    const stored = JSON.parse(localStorage.getItem(`recipe_${id}_en`)!);
+    const stored = JSON.parse(localStorage.getItem(`recipe_${id}_en_n`)!);
     expect(stored.data.title).toBe('Pasta Carbonara');
   });
 
   it('calls axios when cache is expired', async () => {
     localStorage.setItem(
-      `recipe_${id}_en`,
+      `recipe_${id}_en_n`,
       JSON.stringify({ data: recipe, timestamp: Date.now() - CACHE_TTL - 1 })
     );
     mockedAxios.get.mockResolvedValue({ data: recipe });
@@ -61,7 +72,7 @@ describe('getRecipeById', () => {
 
     await getRecipeById(id, 'fr');
 
-    expect(localStorage.getItem(`recipe_${id}_fr`)).not.toBeNull();
-    expect(localStorage.getItem(`recipe_${id}_en`)).toBeNull();
+    expect(localStorage.getItem(`recipe_${id}_fr_n`)).not.toBeNull();
+    expect(localStorage.getItem(`recipe_${id}_en_n`)).toBeNull();
   });
 });

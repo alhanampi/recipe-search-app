@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'Sobre Dishcovery',
     intro:
-      'Dishcovery es un proyecto personal construido para practicar patrones modernos de desarrollo frontend. Permite explorar recetas populares, opciones vegetarianas, buscar por palabra clave, filtrar por cocina y acceder a los detalles completos de cada receta, todo en tu idioma.',
+      'Dishcovery es un proyecto personal construido para practicar patrones modernos de desarrollo frontend. Permite explorar recetas populares, opciones vegetarianas, buscar por palabra clave, filtrar por cocina, guardar recetas favoritas y acceder a los detalles completos — incluyendo información nutricional y selector de porciones —, todo en tu idioma.',
     stackTitle: 'Stack tecnológico',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — framework principal',
@@ -42,15 +42,17 @@ export default {
       'i18next — framework de internacionalización con soporte para 15 idiomas',
       'Groq API (llama-3.3-70b-versatile) — traducción automática con IA',
       'localStorage — caché del lado del cliente con TTL de 24h para minimizar el uso de la API',
+      'Vitest + Testing Library — pruebas unitarias y de integración',
+      'Cypress — pruebas de extremo a extremo',
     ],
     structureTitle: 'Estructura del proyecto',
     structureItems: [
-      'components/ — piezas de UI reutilizables: tarjetas, pills, buscador, grilla de categorías, carrusel',
-      'pages/ — vistas completas: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'components/ — piezas de UI reutilizables: tarjetas, pills, buscador, grilla de categorías, carrusel, botón de favoritos, gráfico nutricional',
+      'pages/ — vistas completas: Home, CuisinePage, SearchPage, RecipePage, FavsPage, AboutPage',
       'services/ — todas las llamadas a la API y lógica de caché, separadas por dominio',
       'i18n/ — archivos de localización para cada idioma soportado',
       'utils/ — constantes compartidas (íconos, colores) e interfaces TypeScript',
-      'context/ — ThemeContext para el modo claro/oscuro',
+      'context/ — ThemeContext para el modo claro/oscuro y FavoritesContext para las recetas guardadas',
     ],
     translationTitle: 'Traducción automática con Groq',
     translationText:
@@ -109,6 +111,8 @@ export default {
     servings: 'porciones',
     unitUs: 'Imperial',
     unitMetric: 'Métrico',
+    nutritionTitle: 'Nutrición',
+    perServing: '% de necesidades diarias · {{count}} porción(es)',
   },
   search: {
     placeholder: 'Buscar recetas...',

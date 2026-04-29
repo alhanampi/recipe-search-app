@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'Over Dishcovery',
     intro:
-      'Dishcovery is een persoonlijk project gemaakt om moderne frontend-ontwikkelpatronen te oefenen. Het laat je populaire recepten bekijken, vegetarische opties verkennen, zoeken op trefwoord, filteren op keuken en volledige receptdetails bekijken — allemaal in jouw taal.',
+      'Dishcovery is een persoonlijk project gemaakt om moderne frontend-ontwikkelpatronen te oefenen. Het laat je populaire recepten bekijken, vegetarische opties verkennen, zoeken op trefwoord, filteren op keuken, favoriete recepten opslaan en volledige receptdetails bekijken — inclusief voedingswaarden en een portieselectie — allemaal in jouw taal.',
     stackTitle: 'Tech Stack',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — kernframework',
@@ -42,15 +42,17 @@ export default {
       'i18next — internationalisatieframework met ondersteuning voor 15 talen',
       'Groq API (llama-3.3-70b-versatile) — AI-gestuurde live vertaling',
       'localStorage — client-side caching met 24u TTL om API-gebruik te minimaliseren',
+      'Vitest + Testing Library — unit- en integratietests',
+      'Cypress — end-to-endtests',
     ],
     structureTitle: 'Projectstructuur',
     structureItems: [
-      'components/ — herbruikbare UI-elementen: kaarten, pills, zoekbalk, categorierooster, carrousel',
-      'pages/ — volledige weergaven: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'components/ — herbruikbare UI-elementen: kaarten, pills, zoekbalk, categorierooster, carrousel, favorietenknop, voedingswaardengrafiek',
+      'pages/ — volledige weergaven: Home, CuisinePage, SearchPage, RecipePage, FavsPage, AboutPage',
       'services/ — alle API-aanroepen en cache-logica, gescheiden per domein',
       'i18n/ — localisatiebestanden voor elke ondersteunde taal',
       'utils/ — gedeelde constanten (iconen, kleuren) en TypeScript-interfaces',
-      'context/ — ThemeContext voor licht/donker modus',
+      'context/ — ThemeContext voor licht/donker modus en FavoritesContext voor opgeslagen recepten',
     ],
     translationTitle: 'AI-vertaling met Groq',
     translationText:
@@ -109,6 +111,8 @@ export default {
     servings: 'porties',
     unitUs: 'VS',
     unitMetric: 'Metrisch',
+    nutritionTitle: 'Voedingswaarden',
+    perServing: '% van dagelijkse behoefte · {{count}} portie(s)',
   },
   search: {
     placeholder: 'Zoek recepten...',

@@ -10,12 +10,13 @@ vi.mock('../../services/groq', () => ({ translateRecipe: vi.fn() }));
 vi.mock('../../components/DietPills/DietPills', () => ({ default: () => null }));
 vi.mock('../../components/CuisinePills/CuisinePills', () => ({ default: () => null }));
 vi.mock('../../components/FavoriteButton/FavoriteButton', () => ({ default: () => null }));
+vi.mock('../../components/NutritionChart/NutritionChart', () => ({ default: () => null }));
 vi.mock('../../components/AppSwitch/AppSwitch', () => ({
   default: ({ checked, onChange }: { checked: boolean; onChange: () => void }) => (
     <input type="checkbox" checked={checked} onChange={onChange} aria-label="unit-toggle" />
   ),
 }));
-vi.mock('../../assets/nopreview.png', () => ({ default: '' }));
+vi.mock('../../assets/nopreview.png', () => ({ default: 'nopreview.png' }));
 
 const mockGetRecipeById = vi.mocked(getRecipeById);
 const mockTranslateRecipe = vi.mocked(translateRecipe);
@@ -115,6 +116,35 @@ describe('RecipePage', () => {
     renderRecipePage();
     await screen.findByText('pasta carbonara');
     expect(mockTranslateRecipe).not.toHaveBeenCalled();
+  });
+
+  it('renders serving buttons 1 through 8', async () => {
+    mockGetRecipeById.mockResolvedValue(mockFullRecipe);
+    renderRecipePage();
+    await screen.findByText('recipe.ingredients');
+    for (let n = 1; n <= 8; n++) {
+      expect(screen.getByRole('button', { name: String(n) })).toBeInTheDocument();
+    }
+  });
+
+  it('pre-selects the serving button matching recipe.servings', async () => {
+    mockGetRecipeById.mockResolvedValue(mockFullRecipe); // servings: 4
+    renderRecipePage();
+    await screen.findByText('recipe.ingredients');
+    const btn4 = screen.getByRole('button', { name: '4' });
+    // active button has amber background applied via styled-component prop
+    expect(btn4).toBeInTheDocument();
+  });
+
+  it('scales ingredient amounts when a serving button is clicked', async () => {
+    mockGetRecipeById.mockResolvedValue(mockFullRecipe); // 2 large egg, servings: 4
+    renderRecipePage();
+    await screen.findByText('recipe.ingredients');
+    // default: 2 * (4/4) = 2
+    expect(screen.getByText(/2 large egg/)).toBeInTheDocument();
+    // click 8: 2 * (8/4) = 4
+    await userEvent.click(screen.getByRole('button', { name: '8' }));
+    expect(screen.getByText(/4 large egg/)).toBeInTheDocument();
   });
 
   it('calls translateRecipe for non-English languages', async () => {

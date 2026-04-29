@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'A Dishcoveryről',
     intro:
-      'A Dishcovery egy személyes projekt, amelyet modern frontend fejlesztési minták gyakorlására készítettem. Lehetővé teszi a népszerű receptek böngészését, a vegetáriánus lehetőségek felfedezését, a kulcsszavas keresést, a konyha szerinti szűrést és a teljes receptrészletek megtekintését — mindezt a saját nyelveden.',
+      'A Dishcovery egy személyes projekt, amelyet modern frontend fejlesztési minták gyakorlására készítettem. Lehetővé teszi a népszerű receptek böngészését, a vegetáriánus lehetőségek felfedezését, a kulcsszavas keresést, a konyha szerinti szűrést, a kedvenc receptek mentését és a teljes receptrészletek megtekintését — beleértve a tápértékeket és az adagszelektort — mindezt a saját nyelveden.',
     stackTitle: 'Technológiai stack',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — alapkeretrendszer',
@@ -42,15 +42,17 @@ export default {
       'i18next — 15 nyelvet támogató internacionalizációs keretrendszer',
       'Groq API (llama-3.3-70b-versatile) — AI-alapú élő fordítás',
       'localStorage — 24 órás TTL-lel rendelkező kliens oldali gyorsítótárazás az API-használat minimalizálásához',
+      'Vitest + Testing Library — egység- és integrációs tesztek',
+      'Cypress — végpontok közötti tesztek',
     ],
     structureTitle: 'Projektstruktúra',
     structureItems: [
-      'components/ — újrafelhasználható UI-elemek: kártyák, pilulák, keresősáv, kategóriarács, körhinta',
-      'pages/ — teljes nézetek: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'components/ — újrafelhasználható UI-elemek: kártyák, pilulák, keresősáv, kategóriarács, körhinta, kedvencek gomb, tápérték-diagram',
+      'pages/ — teljes nézetek: Home, CuisinePage, SearchPage, RecipePage, FavsPage, AboutPage',
       'services/ — összes API-hívás és gyorsítótárazási logika, tartomány szerint szétválasztva',
       'i18n/ — lokalizációs fájlok minden támogatott nyelvhez',
       'utils/ — megosztott konstansok (ikonok, színek) és TypeScript-interfészek',
-      'context/ — ThemeContext a világos/sötét módhoz',
+      'context/ — ThemeContext a világos/sötét módhoz és FavoritesContext a mentett receptekhez',
     ],
     translationTitle: 'AI-fordítás Groqkal',
     translationText:
@@ -109,6 +111,8 @@ export default {
     servings: 'adag',
     unitUs: 'US',
     unitMetric: 'Metrikus',
+    nutritionTitle: 'Tápértékek',
+    perServing: 'A napi szükséglet%-a · {{count}} adag',
   },
   search: {
     placeholder: 'Receptek keresése...',

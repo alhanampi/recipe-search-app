@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'Om Dishcovery',
     intro:
-      'Dishcovery är ett personligt projekt byggt för att öva moderna frontend-utvecklingsmönster. Det låter dig bläddra bland populära recept, utforska vegetariska alternativ, söka efter nyckelord, filtrera efter kök och dyka ner i fullständiga receptdetaljer — allt på ditt språk.',
+      'Dishcovery är ett personligt projekt byggt för att öva moderna frontend-utvecklingsmönster. Det låter dig bläddra bland populära recept, utforska vegetariska alternativ, söka efter nyckelord, filtrera efter kök, spara favoritrecept och dyka ner i fullständiga receptdetaljer — inklusive näringsinformation och en portionsväljare — allt på ditt språk.',
     stackTitle: 'Teknikstack',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — kärnramverk',
@@ -42,15 +42,17 @@ export default {
       'i18next — internationaliseringsramverk med stöd för 15 språk',
       'Groq API (llama-3.3-70b-versatile) — AI-driven direktöversättning',
       'localStorage — klientsidig caching med 24h TTL för att minimera API-användning',
+      'Vitest + Testing Library — enhets- och integrationstester',
+      'Cypress — end-to-end-tester',
     ],
     structureTitle: 'Projektstruktur',
     structureItems: [
-      'components/ — återanvändbara UI-delar: kort, pills, sökfält, kategorinät, karusell',
-      'pages/ — fullständiga vyer: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'components/ — återanvändbara UI-delar: kort, pills, sökfält, kategorinät, karusell, favoritknapp, näringsinformationsgraf',
+      'pages/ — fullständiga vyer: Home, CuisinePage, SearchPage, RecipePage, FavsPage, AboutPage',
       'services/ — alla API-anrop och cache-logik, separerade efter domän',
       'i18n/ — lokaliseringsfiler för varje språk som stöds',
       'utils/ — delade konstanter (ikoner, färger) och TypeScript-gränssnitt',
-      'context/ — ThemeContext för ljust/mörkt läge',
+      'context/ — ThemeContext för ljust/mörkt läge och FavoritesContext för sparade recept',
     ],
     translationTitle: 'AI-översättning med Groq',
     translationText:
@@ -109,6 +111,8 @@ export default {
     servings: 'portioner',
     unitUs: 'US',
     unitMetric: 'Metriskt',
+    nutritionTitle: 'Näringsvärde',
+    perServing: '% av dagligt behov · {{count}} portion(er)',
   },
   search: {
     placeholder: 'Sök recept...',

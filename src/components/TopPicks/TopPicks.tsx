@@ -81,7 +81,7 @@ const TopPicks = () => {
             tr?.summary ?? recipe.summary?.replace(/<[^>]+>/g, '');
           return (
             <SplideSlide key={recipe.id}>
-              <StyledCard>
+              <StyledCard onClick={() => navigate(`/recipe/${recipe.id}`)} sx={{ cursor: 'pointer' }}>
                 <CardTitleBox>
                   <CardTitleText>
                     {title.charAt(0).toUpperCase() + title.slice(1)}

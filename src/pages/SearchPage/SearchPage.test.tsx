@@ -14,7 +14,7 @@ vi.mock('../../services/api', () => ({
 vi.mock('../../components/DietPills/DietPills', () => ({ default: () => null }));
 vi.mock('../../components/CuisinePills/CuisinePills', () => ({ default: () => null }));
 vi.mock('../../components/FavoriteButton/FavoriteButton', () => ({ default: () => null }));
-vi.mock('../../assets/nopreview.png', () => ({ default: '' }));
+vi.mock('../../assets/nopreview.png', () => ({ default: 'nopreview.png' }));
 
 const mockSearchRecipes = vi.mocked(searchRecipes);
 const mockTranslateCards = vi.mocked(translateCards);

@@ -27,9 +27,7 @@ export const Overlay = styled.div<{ $open: boolean }>`
     z-index: 1300;
     background: var(--color-header-bg);
     flex-direction: column;
-    align-items: stretch;
     padding: 1rem 1.5rem 2rem;
-    gap: 1.5rem;
     overflow-y: auto;
   }
 `;
@@ -38,6 +36,9 @@ export const OverlayHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-neutral-border);
+  margin-bottom: 0.25rem;
 `;
 
 export const CloseButton = styled.button`
@@ -53,43 +54,46 @@ export const CloseButton = styled.button`
   line-height: 1;
 `;
 
-export const Section = styled.div`
-  display: flex;
-  flex-direction: column;
+export const SearchSection = styled.div`
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-neutral-border);
 `;
 
-export const Row = styled.div`
+export const NavLink = styled.a`
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-`;
-
-export const ModeLabel = styled.span`
-  color: var(--color-text-primary);
-  font-size: 0.9rem;
-`;
-
-export const AboutLink = styled.a`
-  font-family: 'Carattere', cursive;
-  font-size: 1.6rem;
-  color: var(--color-text-secondary, var(--color-text-muted));
+  gap: 0.65rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-neutral-border);
   text-decoration: none;
+  color: var(--color-text-primary);
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.15s ease;
 
   &:hover {
-    color: var(--color-text-primary);
+    color: var(--color-text-muted);
   }
 `;
 
-export const FavsMenuLink = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: 'Carattere', cursive;
-  font-size: 1.6rem;
-  color: var(--color-text-secondary, var(--color-text-muted));
-  text-decoration: none;
-
+export const FavsNavLink = styled(NavLink)`
   &:hover {
     color: #ef4444;
   }
+`;
+
+export const ControlRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--color-neutral-border);
+`;
+
+export const ControlLabel = styled.span`
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
 `;

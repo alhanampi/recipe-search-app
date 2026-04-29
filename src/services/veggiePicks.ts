@@ -1,10 +1,4 @@
-import { complexSearch } from './api';
+import { randomRecipes } from './api';
 
-export const getVeggie = async (language = 'en') => {
-  const { recipes } = await complexSearch(
-    { diet: 'vegetarian', number: 4 },
-    'veggie',
-    language
-  );
-  return recipes;
-};
+export const getVeggie = (language = 'en') =>
+  randomRecipes({ number: 4, tags: 'vegetarian' }, 'veggie', language);

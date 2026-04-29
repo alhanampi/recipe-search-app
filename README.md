@@ -2,8 +2,6 @@
 
 **[Live demo →](https://recipe-search-app-nu.vercel.app/)**
 
-> ⚠️ **Work in Progress** — This project is actively under development. Features, structure, and design are subject to change.
-
 A recipe discovery web application that lets users browse popular picks, vegetarian options, explore recipes by cuisine, search by keyword, and view full recipe details. Built as a personal project to practice modern frontend development patterns.
 
 ---
@@ -118,12 +116,26 @@ npm run dev
 
 ## Roadmap
 
+### Done
 - [x] Recipe detail page
 - [x] Search by ingredient or name
 - [x] AI translation via Groq
 - [x] US / Metric ingredient toggle
-- [ ] Nutritional analysis
+- [x] Servings selector with proportional ingredient scaling
+- [x] Nutritional analysis chart
 - [x] Favorites / saved recipes
-- [x] More languages
-- [ ] Unit and integration tests
+- [x] 15 languages with browser auto-detection
+- [x] Unit and integration tests (Vitest + Cypress)
 - [x] Responsive / mobile layout
+
+### Planned
+- [ ] Filter search results by diet and cuisine
+- [ ] Similar recipes section on the recipe detail page
+- [ ] Shopping list — add ingredients from any recipe, persisted in localStorage
+- [ ] Wine pairing suggestions on the recipe detail page
+- [ ] Skeleton loaders to replace spinner placeholders
+- [ ] Print-friendly recipe view
+- [ ] Share recipe via URL copy or Web Share API (mobile)
+- [ ] PWA support — installable, offline-capable using existing localStorage cache
+- [ ] Accessibility audit — visible focus, contrast ratios, aria labels
+- [ ] Expand E2E coverage (recipe detail flow, language switching, dark mode)

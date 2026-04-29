@@ -25,6 +25,13 @@ import {
   MetaRow,
   PillsRow,
   SectionTitle,
+  ServingButton,
+  ServingsButtonGroup,
+  ServingsLabel,
+  ServingsRow,
+  ServingsSelect,
+  InlineFavoriteWrapper,
+  TitlePillsRow,
   TitleRow,
   UnitLabel,
   UnitToggleRow,
@@ -34,6 +41,9 @@ import {
 import { translateRecipe } from '../../services/groq';
 import Typography from '@mui/material/Typography';
 import FavoriteButton from '../../components/FavoriteButton/FavoriteButton';
+import NutritionChart from '../../components/NutritionChart/NutritionChart';
+
+const SERVING_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const UNIT_KEY_MAP: Record<string, string> = {
   tsp: 'tsp', tsps: 'tsps',
@@ -84,6 +94,7 @@ const RecipePage = () => {
       return next;
     });
   };
+  const [selectedServings, setSelectedServings] = useState<number | null>(null);
   const [translation, setTranslation] = useState<RecipeTranslation | null>(
     null
   );
@@ -100,6 +111,11 @@ const RecipePage = () => {
       setLoading(false);
     });
   }, [id, language]);
+
+  useEffect(() => {
+    if (!recipe) return;
+    setSelectedServings(recipe.servings);
+  }, [recipe]);
 
   useEffect(() => {
     if (!recipe || language === 'en') return;
@@ -146,11 +162,23 @@ const RecipePage = () => {
         <BackButton onClick={() => navigate(-1)}>
           <FaArrowLeft />
         </BackButton>
-        <Typography variant="h2" sx={{ fontSize: '1.8rem' }}>
+        <InlineFavoriteWrapper>
+          <FavoriteButton recipe={recipe} variant="inline" />
+        </InlineFavoriteWrapper>
+        <Typography
+          variant="h2"
+          sx={{
+            fontSize: '1.8rem',
+            flex: 1,
+            minWidth: 0,
+            '@media (max-width: 600px)': { order: 3, flexBasis: '100%', fontSize: '1.4rem' },
+          }}
+        >
           {title}
         </Typography>
-        <FavoriteButton recipe={recipe} variant="inline" />
-        <CuisinePills recipe={recipe} overlay={false} />
+        <TitlePillsRow>
+          <CuisinePills recipe={recipe} overlay={false} />
+        </TitlePillsRow>
       </TitleRow>
 
       <HeroImage
@@ -194,6 +222,28 @@ const RecipePage = () => {
       {recipe.extendedIngredients?.length > 0 && (
         <>
           <SectionTitle>{t('recipe.ingredients')}</SectionTitle>
+          <ServingsRow>
+            <ServingsLabel>{t('recipe.servings')}</ServingsLabel>
+            <ServingsButtonGroup>
+              {SERVING_OPTIONS.map((n) => (
+                <ServingButton
+                  key={n}
+                  $active={selectedServings === n}
+                  onClick={() => setSelectedServings(n)}
+                >
+                  {n}
+                </ServingButton>
+              ))}
+            </ServingsButtonGroup>
+            <ServingsSelect
+              value={selectedServings ?? ''}
+              onChange={(e) => setSelectedServings(Number(e.target.value))}
+            >
+              {SERVING_OPTIONS.map((n) => (
+                <option key={n} value={n}>{n}</option>
+              ))}
+            </ServingsSelect>
+          </ServingsRow>
           <UnitToggleRow>
             <UnitLabel>{t('recipe.unitUs')}</UnitLabel>
             <AppSwitch
@@ -212,8 +262,12 @@ const RecipePage = () => {
               const unit = language !== 'en' && unitKey
                 ? t(`units.${unitKey}`, { defaultValue: rawUnit })
                 : rawUnit;
-              const amount = measures?.amount
-                ? `${parseFloat(measures.amount.toFixed(2))} ${unit}`
+              const servingScale = (selectedServings ?? recipe.servings) / recipe.servings;
+              const scaledAmt = measures?.amount != null
+                ? measures.amount * servingScale
+                : null;
+              const amount = scaledAmt != null
+                ? `${parseFloat(scaledAmt.toFixed(2))} ${unit}`
                 : '';
               const name = translation?.ingredientNames?.[idx] ?? ing.name;
               return (
@@ -252,6 +306,8 @@ const RecipePage = () => {
           )}
         </>
       )}
+
+      <NutritionChart recipe={recipe} selectedServings={selectedServings ?? recipe.servings} />
 
       {recipe.sourceUrl && (
         <>

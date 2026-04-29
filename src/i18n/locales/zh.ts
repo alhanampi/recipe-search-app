@@ -31,7 +31,7 @@ export default {
   about: {
     title: '关于 Dishcovery',
     intro:
-      'Dishcovery 是一个用于练习现代前端开发模式的个人项目。您可以浏览热门食谱、探索素食选项、按关键词搜索、按菜系筛选，并查看完整的食谱详情——全部以您的语言呈现。',
+      'Dishcovery 是一个用于练习现代前端开发模式的个人项目。您可以浏览热门食谱、探索素食选项、按关键词搜索、按菜系筛选、收藏喜爱的食谱，并查看完整的食谱详情——包括营养信息和份量选择——全部以您的语言呈现。',
     stackTitle: '技术栈',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — 核心框架',
@@ -42,15 +42,17 @@ export default {
       'i18next — 支持15种语言的国际化框架',
       'Groq API (llama-3.3-70b-versatile) — AI实时翻译',
       'localStorage — 24小时TTL的客户端缓存，最小化API使用量',
+      'Vitest + Testing Library — 单元测试和集成测试',
+      'Cypress — 端到端测试',
     ],
     structureTitle: '项目结构',
     structureItems: [
-      'components/ — 可复用UI组件：卡片、标签、搜索栏、分类网格、轮播图',
+      'components/ — 可复用UI组件：卡片、标签、搜索栏、分类网格、轮播图、收藏按钮、营养图表',
       'pages/ — 完整页面：首页、菜系页、搜索页、食谱详情页、关于页',
       'services/ — 按领域分离的所有API调用和缓存逻辑',
       'i18n/ — 各支持语言的本地化文件',
       'utils/ — 共享常量（图标、颜色）和TypeScript接口',
-      'context/ — 明/暗模式的ThemeContext',
+      'context/ — 明/暗模式的ThemeContext和收藏食谱的FavoritesContext',
     ],
     translationTitle: 'Groq AI翻译',
     translationText:
@@ -109,6 +111,8 @@ export default {
     servings: '人份',
     unitUs: '美制',
     unitMetric: '公制',
+    nutritionTitle: '营养成分',
+    perServing: '每日所需的% · {{count}}份',
   },
   search: {
     placeholder: '搜索食谱...',

@@ -26,8 +26,23 @@ export const TitleRow = styled.div`
   margin-bottom: 1.5rem;
 
   @media (max-width: 600px) {
+    flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1rem;
+  }
+`;
+
+export const InlineFavoriteWrapper = styled.div`
+  @media (max-width: 600px) {
+    order: 2;
+    margin-left: auto;
+  }
+`;
+
+export const TitlePillsRow = styled.div`
+  @media (max-width: 600px) {
+    order: 4;
+    flex-basis: 100%;
   }
 `;
 
@@ -211,4 +226,74 @@ export const InstructionText = styled.div`
   font-size: 0.95rem;
   line-height: 1.7;
   color: var(--color-text-primary);
+`;
+
+export const ServingsRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+`;
+
+export const ServingsLabel = styled.span`
+  color: var(--color-text-primary);
+  text-transform: capitalize;
+`;
+
+export const ServingsButtonGroup = styled.div`
+  display: flex;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+
+export const ServingsSelect = styled.select`
+  display: none;
+
+  @media (max-width: 600px) {
+    display: block;
+    width: 5rem;
+    height: 2.4rem;
+    padding: 0 0.5rem;
+    border: 1.5px solid #f59e0b;
+    border-radius: 8px;
+    background-color: var(--color-card-bg);
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    appearance: auto;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+`;
+
+export const ServingButton = styled.button<{ $active: boolean }>`
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0;
+  border: 1.5px solid var(--color-neutral-border);
+  border-right-width: 0;
+  background-color: ${({ $active }) => ($active ? '#f59e0b' : 'transparent')};
+  color: ${({ $active }) => ($active ? '#fff' : 'var(--color-text-primary)')};
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:first-of-type {
+    border-radius: 6px 0 0 6px;
+  }
+
+  &:last-of-type {
+    border-radius: 0 6px 6px 0;
+    border-right-width: 1.5px;
+  }
+
+  &:hover {
+    background-color: ${({ $active }) =>
+      $active ? '#f59e0b' : 'rgba(245, 158, 11, 0.1)'};
+  }
 `;

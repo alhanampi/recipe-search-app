@@ -24,7 +24,7 @@ vi.mock('../SearchBar/SearchBar', () => ({
   default: () => <div data-testid="search-bar" />,
 }));
 
-vi.mock('../../assets/11401354.png', () => ({ default: '' }));
+vi.mock('../../assets/11401354.png', () => ({ default: 'logo.png' }));
 
 const renderMenu = () => render(<HamburgerMenu />);
 

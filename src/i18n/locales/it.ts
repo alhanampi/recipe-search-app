@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'Informazioni su Dishcovery',
     intro:
-      'Dishcovery è un progetto personale creato per praticare i moderni pattern di sviluppo frontend. Permette di sfogliare ricette popolari, opzioni vegetariane, cercare per parola chiave, filtrare per cucina e accedere ai dettagli completi di ogni ricetta, il tutto nella tua lingua.',
+      'Dishcovery è un progetto personale creato per praticare i moderni pattern di sviluppo frontend. Permette di sfogliare ricette popolari, opzioni vegetariane, cercare per parola chiave, filtrare per cucina, salvare le ricette preferite e accedere ai dettagli completi — incluse informazioni nutrizionali e selettore di porzioni —, il tutto nella tua lingua.',
     stackTitle: 'Stack Tecnologico',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — framework principale',
@@ -45,12 +45,12 @@ export default {
     ],
     structureTitle: 'Struttura del Progetto',
     structureItems: [
-      'components/ — elementi UI riutilizzabili: card, pill, barra di ricerca, griglia categorie, carosello',
-      'pages/ — viste complete: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'components/ — elementi UI riutilizzabili: card, pill, barra di ricerca, griglia categorie, carosello, pulsante preferiti, grafico nutrizionale',
+      'pages/ — viste complete: Home, CuisinePage, SearchPage, RecipePage, FavsPage, AboutPage',
       'services/ — tutte le chiamate API e la logica di caching, separati per dominio',
       'i18n/ — file di localizzazione per ogni lingua supportata',
       'utils/ — costanti condivise (icone, colori) e interfacce TypeScript',
-      'context/ — ThemeContext per la modalità chiaro/scuro',
+      'context/ — ThemeContext per la modalità chiaro/scuro e FavoritesContext per le ricette salvate',
     ],
     translationTitle: 'Traduzione AI con Groq',
     translationText:
@@ -109,6 +109,8 @@ export default {
     servings: 'porzioni',
     unitUs: 'US',
     unitMetric: 'Metrico',
+    nutritionTitle: 'Nutrizione',
+    perServing: '% del fabbisogno giornaliero · {{count}} porzione/i',
   },
   search: {
     placeholder: 'Cerca ricette...',

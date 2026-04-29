@@ -40,6 +40,7 @@ const FavsPage = () => {
             return (
               <MuiCard
                 key={recipe.id}
+                onClick={() => navigate(`/recipe/${recipe.id}`)}
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
@@ -47,6 +48,7 @@ const FavsPage = () => {
                   backgroundColor: 'var(--color-card-bg)',
                   borderRadius: '10px',
                   overflow: 'hidden',
+                  cursor: 'pointer',
                   '&:hover': { transform: 'translateY(-4px)' },
                 }}
               >

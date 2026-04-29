@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'Dishcoveryについて',
     intro:
-      'Dishcoveryは、モダンなフロントエンド開発パターンを練習するために作られた個人プロジェクトです。人気レシピの閲覧、ベジタリアンオプションの探索、キーワード検索、料理ジャンルでのフィルタリング、完全なレシピ詳細の閲覧が、すべてあなたの言語でできます。',
+      'Dishcoveryは、モダンなフロントエンド開発パターンを練習するために作られた個人プロジェクトです。人気レシピの閲覧、ベジタリアンオプションの探索、キーワード検索、料理ジャンルでのフィルタリング、お気に入りレシピの保存、栄養情報とサービングセレクターを含む完全なレシピ詳細の閲覧が、すべてあなたの言語でできます。',
     stackTitle: '技術スタック',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — コアフレームワーク',
@@ -42,15 +42,17 @@ export default {
       'i18next — 15言語対応の国際化フレームワーク',
       'Groq API (llama-3.3-70b-versatile) — AIによるリアルタイム翻訳',
       'localStorage — API使用量を最小化する24時間TTLのクライアントサイドキャッシュ',
+      'Vitest + Testing Library — ユニットテストと統合テスト',
+      'Cypress — エンドツーエンドテスト',
     ],
     structureTitle: 'プロジェクト構成',
     structureItems: [
-      'components/ — 再利用可能なUIパーツ：カード、ピル、検索バー、カテゴリグリッド、カルーセル',
+      'components/ — 再利用可能なUIパーツ：カード、ピル、検索バー、カテゴリグリッド、カルーセル、お気に入りボタン、栄養チャート',
       'pages/ — 完全なビュー：Home、CuisinePage、SearchPage、RecipePage、AboutPage',
       'services/ — ドメイン別に分離したすべてのAPI呼び出しとキャッシュロジック',
       'i18n/ — サポートされている各言語のロケールファイル',
       'utils/ — 共有定数（アイコン、色）とTypeScriptインターフェース',
-      'context/ — ライト/ダークモード用ThemeContext',
+      'context/ — ライト/ダークモード用ThemeContextとお気に入りレシピ用FavoritesContext',
     ],
     translationTitle: 'GroqによるAI翻訳',
     translationText:
@@ -109,6 +111,8 @@ export default {
     servings: '人分',
     unitUs: 'US単位',
     unitMetric: 'メトリック',
+    nutritionTitle: '栄養成分',
+    perServing: '1日の必要量の% · {{count}}人前',
   },
   search: {
     placeholder: 'レシピを検索...',

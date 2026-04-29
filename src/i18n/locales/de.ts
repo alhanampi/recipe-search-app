@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'Über Dishcovery',
     intro:
-      'Dishcovery ist ein persönliches Projekt, das entwickelt wurde, um moderne Frontend-Entwicklungsmuster zu üben. Es ermöglicht das Stöbern in beliebten Rezepten, vegetarischen Optionen, die Suche nach Stichwörtern, das Filtern nach Küche und den Zugriff auf vollständige Rezeptdetails – alles in Ihrer Sprache.',
+      'Dishcovery ist ein persönliches Projekt, das entwickelt wurde, um moderne Frontend-Entwicklungsmuster zu üben. Es ermöglicht das Stöbern in beliebten Rezepten, vegetarischen Optionen, die Suche nach Stichwörtern, das Filtern nach Küche, das Speichern von Lieblingsrezepten und den Zugriff auf vollständige Rezeptdetails – einschließlich Nährwertinformationen und Portionsregler – alles in Ihrer Sprache.',
     stackTitle: 'Technologie-Stack',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — Kern-Framework',
@@ -42,15 +42,17 @@ export default {
       'i18next — Internationalisierungsframework mit Unterstützung für 15 Sprachen',
       'Groq API (llama-3.3-70b-versatile) — KI-gestützte Live-Übersetzung',
       'localStorage — clientseitiges Caching mit 24h TTL zur Minimierung der API-Nutzung',
+      'Vitest + Testing Library — Unit- und Integrationstests',
+      'Cypress — End-to-End-Tests',
     ],
     structureTitle: 'Projektstruktur',
     structureItems: [
-      'components/ — wiederverwendbare UI-Elemente: Karten, Pills, Suchleiste, Kategorieraster, Karussell',
-      'pages/ — vollständige Ansichten: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'components/ — wiederverwendbare UI-Elemente: Karten, Pills, Suchleiste, Kategorieraster, Karussell, Favoriten-Button, Nährwerttabelle',
+      'pages/ — vollständige Ansichten: Home, CuisinePage, SearchPage, RecipePage, FavsPage, AboutPage',
       'services/ — alle API-Aufrufe und Caching-Logik, nach Domäne getrennt',
       'i18n/ — Lokalisierungsdateien für jede unterstützte Sprache',
       'utils/ — gemeinsame Konstanten (Icons, Farben) und TypeScript-Interfaces',
-      'context/ — ThemeContext für Hell-/Dunkel-Modus',
+      'context/ — ThemeContext für Hell-/Dunkel-Modus und FavoritesContext für gespeicherte Rezepte',
     ],
     translationTitle: 'KI-Übersetzung mit Groq',
     translationText:
@@ -109,6 +111,8 @@ export default {
     servings: 'Portionen',
     unitUs: 'US',
     unitMetric: 'Metrisch',
+    nutritionTitle: 'Nährwerte',
+    perServing: '% des Tagesbedarfs · {{count}} Portion(en)',
   },
   search: {
     placeholder: 'Rezepte suchen...',

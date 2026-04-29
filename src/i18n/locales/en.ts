@@ -31,7 +31,7 @@ export default {
   about: {
     title: 'About Dishcovery',
     intro:
-      'Dishcovery is a personal project built to practice modern frontend development patterns. It lets you browse popular recipes, explore vegetarian options, search by keyword, filter by cuisine, and dive into full recipe details — all in your language.',
+      'Dishcovery is a personal project built to practice modern frontend development patterns. It lets you browse popular recipes, explore vegetarian options, search by keyword, filter by cuisine, save favorite recipes, and dive into full recipe details — including nutritional information and a servings selector — all in your language.',
     stackTitle: 'Tech Stack',
     stackItems: [
       'React 19 + TypeScript 6 + Vite 8 — core framework',
@@ -42,15 +42,17 @@ export default {
       'i18next — internationalization framework supporting 15 languages',
       'Groq API (llama-3.3-70b-versatile) — AI-powered live translation',
       'localStorage — client-side caching with 24h TTL to minimize API usage',
+      'Vitest + Testing Library — unit and integration tests',
+      'Cypress — end-to-end tests',
     ],
     structureTitle: 'Project Structure',
     structureItems: [
-      'components/ — reusable UI pieces: cards, pills, search bar, category grid, carousel',
-      'pages/ — full views: Home, CuisinePage, SearchPage, RecipePage, AboutPage',
+      'components/ — reusable UI pieces: cards, pills, search bar, category grid, carousel, favorite button, nutrition chart',
+      'pages/ — full views: Home, CuisinePage, SearchPage, RecipePage, FavsPage, AboutPage',
       'services/ — all API calls and caching logic, separated by domain',
       'i18n/ — locale files for each supported language',
       'utils/ — shared constants (icons, colors) and TypeScript interfaces',
-      'context/ — ThemeContext for light/dark mode',
+      'context/ — ThemeContext (light/dark mode) and FavoritesContext (saved recipes)',
     ],
     translationTitle: 'AI Translation with Groq',
     translationText:
@@ -109,6 +111,8 @@ export default {
     servings: 'servings',
     unitUs: 'US',
     unitMetric: 'Metric',
+    nutritionTitle: 'Nutrition',
+    perServing: '% of daily needs · {{count}} serving(s)',
   },
   search: {
     placeholder: 'Search recipes...',
